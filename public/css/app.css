@@ -1,0 +1,88 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+footer {
+  position: absolute !important;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  margin-top: 5px;
+  height: 55px;
+}
+
+header.navbar-default{
+    border: 0;
+    border-radius: 0;
+    border-top: 5px #00aeef solid !important;
+    background-color: #fff;
+}
+
+header h3 {
+    margin: 10px;
+}
+
+header h3 img {
+    margin-right: 10px;
+}
+
+header h3 a:hover {
+    text-decoration: none !important;
+}
+
+
+footer.navbar-default {
+    border-radius: 0;
+    background-color: #fff;
+    margin-bottom: 0;
+}
+
+.navbar-text {
+    margin-left: 15px;
+}
+
+#main {
+    min-height: 400px;
+}
+
+#main > .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+pre {
+    padding: 0;
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 767px) {
+    .pull-none {
+        float: none!important;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px){
+
+}
+
+/* Tablet only */
+@media (min-width: 768px) and (max-width: 991px){
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
