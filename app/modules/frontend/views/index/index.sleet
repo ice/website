@@ -1,0 +1,32 @@
+<h2 class="text-center">{{ __('Simple and fast PHP framework delivered as C-extension.') }}</h2>
+<hr />
+<p class="text-muted text-center">{{ __("You don't need learn or use the C language, since the functionality is exposed as PHP classes ready for you to use.") }}</p>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <h3>{{ __('Database connection') }}</h3>
+        <hr />
+        <p>{{ __('We are trying to create one syntax for PDO & Mongo to connect to databases.') }}</p>
+        {{ __('Working with db:') }}
+        {{ partial('expose/db') }}
+        {{ __('Working with model:') }}
+        {{ partial('expose/model') }}
+        {{ __('Example of action:') }}
+        {{ partial('expose/action') }}
+    </div>
+    <div class="col-md-6">
+        <h3>{{ __('Sleet template engine') }}</h3>
+        <hr />
+        <p>{{ __('Sleet is lightweight and fast compiling PHP template engine written in C.') }}</p>
+        {{ __('Built-in authentication:') }}
+        {{ partial('expose/auth') }}
+        {{ __('Easy translations:') }}
+        {{ partial('expose/i18n') }}
+        {{ __('Use class in the view:') }}
+        {{ partial('expose/class') }}
+        {{ __('Debug variables:') }}
+        {{ partial('expose/dump') }}
+        {{ __('Control structures:') }}
+        {{ partial('expose/control') }}
+    </div>
+</div>
