@@ -5,6 +5,8 @@
         <title>{{ get_title() }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ siteDesc }}">
+        <meta name="google-site-verification" content="ub1LAQxag4-yzLoY9zmk21cUee54gX-mT2tFzdmvCss" />
+        <meta name="msvalidate.01" content="4879A4324BDAF051F3CB9F48703D2636" />
         {% if assets['scripts'] %}
             {% foreach assets['styles'] as style %}
                 {{ style }}

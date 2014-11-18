@@ -24,6 +24,7 @@ return [
     /** Website */
     "Contact" => "Kontakt",
     "Content" => "Zawartość",
+    "Compilation" => "Kompilacja",
     "Database connection" => "Połączenie do bazy danych",
     "Documentation" => "Dokumentacja",
     "Download" => "Pobierz",
@@ -33,6 +34,7 @@ return [
     "Ice is a C extension, so you need to download a binary for your platform or compile it from source code." => "Ice jest rozszerzeniem C, więc trzeba ściągnąć plik binarny dla platformy lub skompilować go z kodu źródłowego.",
     "Language" => "Język",
     "Message was sent." => "Wiadomość została wysłana.",
+    "openSUSE package: :link" => "openSUSE pakiet: :link",
     "Please correct the errors." => "Proszę poprawić błędy.",
     "Repeat email" => "Powtórz email",
     "Send" => "Wyślij",

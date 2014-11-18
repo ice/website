@@ -90,6 +90,16 @@ class Controller extends \Ice\Mvc\Controller
         // Set final title and description
         $this->tag->setTitleSeparator(' | ');
         $this->tag->appendTitle($this->config->app->name);
+
+        $this->assets['scripts'][] = $this->tag->script(['content' =>
+            "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-56854903-1', 'auto');
+            ga('send', 'pageview');"
+        ]);
         $this->view->setVars([
             'siteDesc' => mb_substr($this->filter->sanitize($this->siteDesc, 'string'), 0, 200, 'utf-8'),
             'assets' => $this->assets,
