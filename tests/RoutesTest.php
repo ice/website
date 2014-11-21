@@ -72,6 +72,7 @@ class RoutesTest extends PHPUnit
             ['/info', ['frontend', 'info', 'index', []]],
             ['/info/', ['frontend', 'info', 'index', []]],
             ['/info/download', ['frontend', 'info', 'download', []]],
+            ['/info/contact', ['frontend', 'info', 'contact', []]],
 
             ['/lang/set/en-gb', ['frontend', 'lang', 'set', ['param' => 'en-gb']]],
 
