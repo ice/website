@@ -1,6 +1,6 @@
 <h1>{{ __('Contact') }}</h1><hr />
 {{ this.flash.getMessages() }}
-{{ form(['info/contact', 'class' : 'form-horizontal']) }}
+{{ form([false, 'class' : 'form-horizontal']) }}
 {% set field = 'fullName' %}
 <div class="form-group{{ errors|isset and errors.has(field) ? ' has-error' : (isset(_POST[field]) ? ' has-success' : '') }}">
     <label class="control-label col-lg-2" for={{ field }}>{{ __(field|human) }}:</label>
