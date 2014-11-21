@@ -1,6 +1,7 @@
 <?php
 
 return [
+    ['POST', '/{controller:info}/{action:contact[/]?}'],
     // Routes for doc module
     ['GET', '/{module:doc}/{controller:[a-z]+}/{action:[a-z]+}/{param}'],
     ['GET', '/{module:doc}/{controller:[a-z]+}/{action:[a-z]+[/]?}'],
@@ -11,5 +12,4 @@ return [
     ['GET', '/{controller:[a-z]+}/{action:[a-z]+[/]?}'],
     ['GET', '/{controller:[a-z]+[/]?}'],
     ['GET', ''],
-    ['POST', '/{controller:[a-z]+}/{action:[a-z]+[/]?}'],
 ];
