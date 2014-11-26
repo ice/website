@@ -10,6 +10,7 @@
             <ul class="nav navbar-nav pull-left pull-none">
                 <li class="disabled"><span class="navbar-text">Ice {{ version() }}</span></li>
                 <li>{{ link_to(['info/contact', __('Contact')]) }}</li>
+                <li>{{ link_to(['license', __('License')]) }}</li>
             </ul>
             <ul class="nav navbar-nav pull-right pull-none">
                 <li class="dropdown dropup">
