@@ -1,6 +1,7 @@
 <?php
 
 return [
+    ['GET', '/license', ['controller' => 'info', 'action' => 'license']],
     ['GET', '/info/contact', ['controller' => 'info', 'action' => 'contact']],
     ['POST', '/info/contact', ['controller' => 'info', 'action' => 'contact']],
     // Routes for doc module

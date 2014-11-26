@@ -35,6 +35,15 @@ class InfoController extends Controller
     }
 
     /**
+     * Display license
+     */
+    public function licenseAction()
+    {
+        $this->tag->setTitle(__('License'));
+        $this->siteDesc = __('License');
+    }
+
+    /**
      * Validate _POST and send email
      *
      * @throws Error
