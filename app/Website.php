@@ -5,6 +5,7 @@ namespace App;
 use Ice\Config\Ini as Config;
 use Ice\I18n;
 use Ice\Crypt;
+use Ice\Dump;
 use Ice\Loader;
 use Ice\Flash;
 use Ice\Filter;
@@ -89,6 +90,7 @@ class Website extends App
         $config = $this->config;
         $this->di->config = $config;
         $this->di->crypt = new Crypt($config->crypt->key);
+        $this->di->dump = new Dump();
         $this->di->session = new Session();
         $this->di->request = new Request();
         $this->di->cookies = new Cookies($config->cookie->salt);
