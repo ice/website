@@ -21,6 +21,7 @@ return [
     "Working with db:" => "Praca z db:",
     "Working with model:" => "Praca z modelem:",
     "Example of action:" => "Przykład akcji:",
+    "Example of validation:" => "Przykład walidacji:",
     /** Website */
     "Contact" => "Kontakt",
     "Content" => "Zawartość",
