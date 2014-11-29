@@ -5,7 +5,6 @@ namespace App\Modules\Frontend\Controllers;
 use App\Error;
 use App\Extensions\Controller;
 use App\Libraries\Email;
-use Ice\Arr;
 use Ice\Validation;
 
 /**
@@ -69,7 +68,7 @@ class InfoController extends Controller
         $valid = $validation->validate($_POST);
 
         if (!$valid) {
-            $this->view->setVar('errors', new Arr($validation->getMessages()));
+            $this->view->setVar('errors', $validation->getMessages());
             $this->flash->warning('<strong>' . __('Warning') . '!</strong> ' . __("Please correct the errors."));
         } else {
             // Prepare an email
