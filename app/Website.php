@@ -59,7 +59,6 @@ class Website extends App
             ]
         ];
         $this->setModules($modules);
-        $this->setDefaultModule('frontend');
 
         // Register services
         $this->registerServices();
