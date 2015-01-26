@@ -112,7 +112,7 @@ class Website extends App
         // Set the dispatcher service
         $this->di->set('dispatcher', function () use ($config) {
             $dispatcher = new Dispatcher();
-            $router->setSilent($config->env->silent->dispatcher);
+            $dispatcher->setSilent($config->env->silent->dispatcher);
             return $dispatcher;
         });
 
