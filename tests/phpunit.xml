@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="true">
-    <testsuite name="website">
+    <testsuite name="all">
         <directory>./</directory>
     </testsuite>
 </phpunit>

@@ -7,7 +7,6 @@ defined('__ROOT__') or
     define('__ROOT__', dirname(__DIR__));
 
 if (!function_exists('__')) {
-
     /**
      * Translation function
      * @see Ice\I18n translate()
@@ -27,14 +26,5 @@ if (!function_exists('__')) {
 // Include composer's autolader
 include_once __ROOT__ . '/vendor/autoload.php';
 
-try {
-    // Initialize website, handle a MVC request and display the HTTP response body
-    echo (new App\Website(new Ice\Di()))
-        ->run()
-        ->handle();
-} catch (Exception $e) {
-    // Do something with the exception depending on the environment
-    if (!$e instanceof App\Error) {
-        new App\Error($e->getMessage(), $e->getCode(), $e);
-    }
-}
+// Initialize website, handle a MVC request and display the HTTP response body
+echo (new App\Website((new Ice\Di())->errors('App\Error')))->run()->handle();
