@@ -110,19 +110,19 @@ class Website extends App
         $this->di->flash = new Flash();
 
         // Set the dispatcher service
-        $this->di->set('dispatcher', function () {
+        $this->di->set('dispatcher', function () use ($config) {
             $dispatcher = new Dispatcher();
-            $dispatcher->setSilent(true);
+            $dispatcher->setSilent($config->env->silent->dispatcher);
             return $dispatcher;
         });
 
         $routes = require_once __DIR__ . '/routes.php';
 
         // Set the router service
-        $this->di->set('router', function () use ($routes) {
+        $this->di->set('router', function () use ($routes, $config) {
             $router = new Router();
             $router->setDefaultModule('frontend');
-            $router->setSilent(true);
+            $router->setSilent($config->env->silent->router);
             $router->setRoutes($routes);
             return $router;
         });
