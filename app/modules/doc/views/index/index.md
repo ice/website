@@ -1,8 +1,6 @@
 ## Documentation
 ***
-_Coming soon..._
-
-Please take a look at the [readme](doc/index/readme).
+Please take a look at the [api](http://doc.iceframework.org) and [readme](doc/index/readme).
 
 Also try the:
 * [hello](https://github.com/ice/hello) - A very simple example of an application
