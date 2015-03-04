@@ -41,6 +41,8 @@ class Controller extends \Ice\Mvc\Controller
         $this->assets['styles'][] = $this->tag->link(['css/bootstrap.min.css?v=3.3.1']);
         $this->assets['styles'][] = $this->tag->link(['css/fonts.css']);
         $this->assets['styles'][] = $this->tag->link(['css/app.css']);
+        $this->assets['styles'][] = $this->tag->link(['css/simple-line-icons.css']);
+        $this->assets['styles'][] = $this->tag->link(['css/octicons.css']);
 
         $this->assets['scripts'][] = $this->tag->script(['js/jquery.min.js?v=1.11.1']);
         $this->assets['scripts'][] = $this->tag->script(['js/bootstrap.min.js?v=3.3.1']);
@@ -82,7 +84,7 @@ class Controller extends \Ice\Mvc\Controller
 
     /**
      * After execute action
-     * 
+     *
      * @return void
      */
     public function after()
