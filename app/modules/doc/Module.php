@@ -38,9 +38,21 @@ class Module implements ModuleInterface
         // Set default namespace
         $di->dispatcher->setDefaultNamespace(__NAMESPACE__ . '\Controllers');
 
+        // Get the language
+        if ($di->session->has('lang')) {
+            // Set the language from session
+            $lang = $di->session->get('lang');
+        } elseif ($di->cookies->has('lang')) {
+            // Set the language from cookie
+            $lang = $di->cookies->get('lang');
+        } else {
+            // Default language
+            $lang = $di->i18n->lang();
+        }
+
         // Overwrite views dirs
-        $di->view->setViewsDir(__DIR__ . '/views/');
-        $di->view->setPartialsDir('../../../common/views/partials/');
-        $di->view->setLayoutsDir('../../../common/views/layouts/');
+        $di->view->setViewsDir(__DIR__ . '/views/' . $di->i18n->iso($lang) . '/');
+        $di->view->setPartialsDir('../../../../common/views/partials/');
+        $di->view->setLayoutsDir('../../../../common/views/layouts/');
     }
 }

@@ -4,5 +4,5 @@ Please take a look at the [api](http://doc.iceframework.org) and [readme](doc/in
 
 Also try the:
 * [hello](https://github.com/ice/hello) - A very simple example of an application
-* [base](https://github.com/ice/base) - The base application written in Ice
 * [website](https://github.com/ice/website) - The source code of this website
+* [base](https://github.com/ice/base) - The base application written in Ice
