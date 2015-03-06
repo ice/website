@@ -32,12 +32,4 @@ class IndexController extends Controller
     {
         $this->tag->setTitle(__('Documentation'));
     }
-
-    /**
-     * Display readme
-     */
-    public function readmeAction()
-    {
-        $this->tag->setTitle(__('Readme'));
-    }
 }
