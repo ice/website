@@ -1,8 +1,9 @@
 ## Dokumentacja
 ***
-Zerknij na [api](http://doc.iceframework.org) i [readme](doc/index/readme).
 
-Spróbuj również:
-* [hello](https://github.com/ice/hello) - Prosty przykład aplikcaji
-* [website](https://github.com/ice/website) - Kod źródłowy tej strony
-* [base](https://github.com/ice/base) - Bazowa aplikacja napisana w Ice
+* [Wprowadzenie](/doc/introduction)
+  * [Przeczytaj mnie](/doc/introduction/readme)
+  * [Konfiguracja servera](/doc/introduction/server)
+* [Poradniki](/doc/tutorial)
+  * [Poradnik 1: aplikacja hello](/doc/tutorial/hello)
+* [Api](http://doc.iceframework.org)
