@@ -56,7 +56,7 @@ Jeśli komputer jest publiczy, użyj domeny np. _example.com_ zamiast _hello_ w 
 [Apache](http://httpd.apache.org) jest popularnm i dobrze znanym serwerem WWW dostępnym na wielu platformach.
 
 #### Konfiguracja wirtualnego hosta
-Create `/etc/apache2/vhosts.d/hello.conf` config file:
+Utwórz plik konfiguracyjny `/etc/apache2/vhosts.d/hello.conf`:
 ```apache
 <VirtualHost *:80>
   DocumentRoot /srv/www/hello/public
