@@ -69,7 +69,8 @@ class Error extends Exception
                 $assets['styles'] = [
                     $di->tag->link(['css/bootstrap.min.css?v=3.3.1']),
                     $di->tag->link(['css/fonts.css']),
-                    $di->tag->link(['css/app.css'])
+                    $di->tag->link(['css/app.css']),
+                    $di->tag->link(['css/simple-line-icons.css'])
                 ];
 
                 echo $view->layout('error', $assets);

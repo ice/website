@@ -164,7 +164,8 @@ class Website extends App
         $assets['styles'] = [
             $this->di->tag->link(['css/bootstrap.min.css?v=3.3.1']),
             $this->di->tag->link(['css/fonts.css']),
-            $this->di->tag->link(['css/app.css'])
+            $this->di->tag->link(['css/app.css']),
+            $this->di->tag->link(['css/simple-line-icons.css'])
         ];
 
         // Display pretty view if response is Client/Server Error and silet option is true
@@ -178,14 +179,14 @@ class Website extends App
                 ]);
                 switch ($status) {
                     case 404:
-                        $view->setVar('icon', 'road');
+                        $view->setVar('icon', 'target');
                         break;
                     case 508:
-                        $view->setVar('icon', 'repeat');
+                        $view->setVar('icon', 'reload');
                         break;
 
                     default:
-                        $view->setVar('icon', 'remove');
+                        $view->setVar('icon', 'close');
                         break;
                 }
                 $response->setBody($view->layout('error', $assets));

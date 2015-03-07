@@ -4,5 +4,5 @@
 
 <ul>
     <li>{{ __('openSUSE package: :link', [':link' => link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank'])]) }}</li>
-    <li>{{ link_to(['doc/index/readme', __('Compilation')]) }}</li>
+    <li>{{ link_to(['doc/introduction/readme', __('Compilation')]) }}</li>
 </ul>

@@ -17,7 +17,7 @@
         <div id="main" class="text-center">
             <div class="container">
                 <h1>{{ __('Status :code', [':code' : code]) }}</h1>
-                <h1 class="text-muted"><span class="glyphicon glyphicon-{{ icon|isset ? icon : 'remove' }}"></span></h1>
+                <h1 class="text-muted"><span class="icon-{{ icon|isset ? icon : 'close' }}"></span></h1>
                 <h4 class="text-muted">{{ __(message|isset ? message : 'Something is wrong') }}</h4>
             </div>
         </div>
