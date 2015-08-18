@@ -21,7 +21,7 @@ class InfoController extends Controller
      */
     public function downloadAction()
     {
-        $this->tag->setTitle(__('Download'));
+        $this->tag->setTitle(_t('Download'));
     }
     
     /**
@@ -29,8 +29,8 @@ class InfoController extends Controller
      */
     public function contactAction()
     {
-        $this->tag->setTitle(__('Contact'));
-        $this->siteDesc = __('Contact');
+        $this->tag->setTitle(_t('Contact'));
+        $this->siteDesc = _t('Contact');
     }
 
     /**
@@ -38,8 +38,8 @@ class InfoController extends Controller
      */
     public function licenseAction()
     {
-        $this->tag->setTitle(__('License'));
-        $this->siteDesc = __('License');
+        $this->tag->setTitle(_t('License'));
+        $this->siteDesc = _t('License');
     }
 
     /**
@@ -59,21 +59,21 @@ class InfoController extends Controller
         ]);
 
         $validation->setLabels([
-            'fullName' => __('Full name'),
-            'content' => __('Content'),
-            'email' => __('Email'),
-            'repeatEmail' => __('Repeat email')
+            'fullName' => _t('Full name'),
+            'content' => _t('Content'),
+            'email' => _t('Email'),
+            'repeatEmail' => _t('Repeat email')
         ]);
 
         $valid = $validation->validate($_POST);
 
         if (!$valid) {
             $this->view->setVar('errors', $validation->getMessages());
-            $this->flash->warning('<strong>' . __('Warning') . '!</strong> ' . __("Please correct the errors."));
+            $this->flash->warning('<strong>' . _t('Warning') . '!</strong> ' . _t("Please correct the errors."));
         } else {
             // Prepare an email
             $email = new Email();
-            $email->prepare(__('Contact'), $this->config->app->admin, 'email/contact', [
+            $email->prepare(_t('Contact'), $this->config->app->admin, 'email/contact', [
                 'fullName' => $this->request->getPost('fullName'),
                 'email' => $this->request->getPost('email'),
                 'content' => $this->request->getPost('content'),
@@ -82,7 +82,7 @@ class InfoController extends Controller
 
             // Try to send email
             if ($email->Send() === true) {
-                $this->flash->notice('<strong>' . __('Success') . '!</strong> ' . __("Message was sent."));
+                $this->flash->notice('<strong>' . _t('Success') . '!</strong> ' . _t("Message was sent."));
                 unset($_POST);
             } else {
                 throw new Error($email->ErrorInfo);
