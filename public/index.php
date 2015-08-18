@@ -6,18 +6,6 @@ defined('__ROOT__') or
      */
     define('__ROOT__', dirname(__DIR__));
 
-if (!function_exists('__')) {
-    /**
-     * Translation function
-     * @see Ice\I18n translate()
-     */
-    function __($string, array $values = null, $context = null, $lang = null)
-    {
-        return \Ice\I18n::fetch()->translate($string, $values, $context, $lang);
-    }
-
-}
-
 // Register App namespace
 (new Ice\Loader())
     ->addNamespace('App', __ROOT__ . '/app')
@@ -27,4 +15,6 @@ if (!function_exists('__')) {
 include_once __ROOT__ . '/vendor/autoload.php';
 
 // Initialize website, handle a MVC request and display the HTTP response body
-echo (new App\Website((new Ice\Di())->errors('App\Error')))->run()->handle();
+echo (new App\Website((new Ice\Di())->errors('App\Error')))
+    ->run()
+    ->handle();

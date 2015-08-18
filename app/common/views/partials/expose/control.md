@@ -15,15 +15,14 @@
 {% endwhile %}
 ```
 ```php
-{% switch i %}
+{% switch i %}{% default %}
+    // Default case
+        {% break %}
     {% case 1 %}
         // i equals 1
         {% break %}
     {% case 2 %}
         // i equals 2
-        {% break %}
-    {% default %}
-        // Default case
         {% break %}
 {% endswitch %}
 ```
