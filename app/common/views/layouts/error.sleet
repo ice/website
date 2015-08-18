@@ -1,10 +1,9 @@
 {{ get_doc_type() }}
-<html lang="{{ substr(this.i18n.lang(), 0, 2) }}">
+<html lang="{{ this.i18n.iso() }}">
     <head>
         <meta charset="utf-8">
-        <title>{{ __('Status :code', [':code' : code]) ~ ' | ' ~ this.config.app.name }}</title>
+        <title>{{ code|isset ? _t('status :code', [':code' : code]) : _t('Something is wrong') ~ ' | ' ~ this.config.app.name }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="{{ __('Status :code', [':code' : code]) }} - {{ __(message) }}">
         {% if isset(assets['styles']) %}
             {% foreach assets['styles'] as style %}
                 {{ style }}
@@ -16,9 +15,10 @@
     <body class="text-center">
         <div id="main" class="text-center">
             <div class="container">
-                <h1>{{ __('Status :code', [':code' : code]) }}</h1>
-                <h1 class="text-muted"><span class="icon-{{ icon|isset ? icon : 'close' }}"></span></h1>
-                <h4 class="text-muted">{{ __(message|isset ? message : 'Something is wrong') }}</h4>
+                {{ link_to([null, image(['img/logo.png', this.config.app.name, 'style' : 'height: 30px'])]) }}
+                <h1>{{ code|isset ? _t('status :code', [':code' : code]) : _t('Something is wrong') }}</h1>
+                <h1 class="text-muted"><span class="{{ icon|isset ? icon : 'icon-close' }}"></span></h1>
+                <h4 class="text-muted">{{ message|isset ? _t(message) : _t("Don't worry") }}</h4>
             </div>
         </div>
         <footer class="navbar navbar-default">
