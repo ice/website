@@ -34,8 +34,8 @@ class Controller extends \Ice\Mvc\Controller
     {
         // Set default title and description
         $this->tag->setDocType(Tag::XHTML5);
-        $this->tag->setTitle(__($this->config->app->title));
-        $this->siteDesc = __($this->config->app->description);
+        $this->tag->setTitle(_t($this->config->app->title));
+        $this->siteDesc = _t($this->config->app->description);
 
         // Add css and js to assets collection
         $this->assets['styles'][] = $this->tag->link(['css/bootstrap.min.css?v=3.3.1']);
@@ -77,7 +77,7 @@ class Controller extends \Ice\Mvc\Controller
         // Send langs to the view
         $this->view->setVars([
             // Translate langs before send
-            'siteLangs' => array_map('__', $this->config->i18n->langs->toArray()),
+            'siteLangs' => array_map('_t', $this->config->i18n->langs->toArray()),
             'header' => 'header'
         ]);
     }
