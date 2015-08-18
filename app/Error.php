@@ -55,7 +55,7 @@ class Error extends Exception
         } else {
             // Load and display error view
             if (PHP_SAPI == 'cli') {
-                echo __('Something is wrong!');
+                echo _t('Something is wrong!');
             } else {
                 // Load and display error view
                 $view = $di->view;
@@ -90,7 +90,7 @@ class Error extends Exception
             $log = $dump->vars($error, $info, $debug);
 
             $email = new Email();
-            $email->prepare(__('Something is wrong!'), $di->config->app->admin, 'email/error', ['log' => $log]);
+            $email->prepare(_t('Something is wrong!'), $di->config->app->admin, 'email/error', ['log' => $log]);
 
             if ($email->Send() !== true) {
                 $logger = new Logger(__DIR__ . '/common/log/' . date('Ymd') . '.log');

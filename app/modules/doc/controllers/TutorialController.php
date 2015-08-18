@@ -13,7 +13,7 @@ class TutorialController extends IndexController
 
     public function indexAction()
     {
-        $this->tag->setTitle(__('Tutorials'));
+        $this->tag->setTitle(_t('Tutorials'));
     }
 
     public function helloAction()
