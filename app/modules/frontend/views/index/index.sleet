@@ -8,6 +8,9 @@
     {{ link_to(['https://packagist.org/packages/iceframework', '<i class="octicon octicon-package"></i>', 'Packagist: iceframework', 'local': false, 'class': 'text-danger', 'rel': 'nofollow', 'target': '_blank']) }}
     {{ link_to(['https://github.com/ice', '<i class="octicon octicon-mark-github"></i>', 'GitHub: ice', 'local': false, 'class': 'text-muted', 'rel': 'nofollow', 'target': '_blank']) }}
 </h3>
+<p>
+    {{ link_to(['doc/introduction/benchmark', image(['img/doc/benchmark.jpg', 'Benchmark', 'class': 'img-responsive center-block'])]) }}
+</p>
 <br />
 <div class="row">
     <div class="col-md-6">
