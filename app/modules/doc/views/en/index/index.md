@@ -2,6 +2,7 @@
 ***
 
 * [Introduction](/doc/introduction)
+  * [Benchmark](/doc/introduction/benchmark)
   * [Readme](/doc/introduction/readme)
   * [Server configuration](/doc/introduction/server)
 * [Tutorials](/doc/tutorial)
