@@ -25,4 +25,9 @@ class IntroductionController extends IndexController
     {
 
     }
+
+    public function benchmarkAction()
+    {
+
+    }
 }
