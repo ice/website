@@ -1,8 +1,8 @@
 ## Validation
 ***
-Allows to validate any array data eg. *$_POST*, *$_GET*, *$_FILES*, etc.
+[Ice\Validation](http://doc.iceframework.org/latest/class/Ice/Validation.html) is an independent validation component that allows to validate any array data eg. *$_POST*, *$_GET*, *$_FILES*, etc.
 
-Let's try to validate `data` with some email rules:
+Let's try to validate `$data` with some email rules:
 
 ```php
 use Ice\Validation;
@@ -48,7 +48,7 @@ array(2) {
 }
 ```
 
-##### Add multiple rules
+#### Add multiple rules
 You can add multiple rules at once:
 ```php
 $validation->rules([
@@ -60,7 +60,7 @@ $validation->rules([
 ]);
 ```
 
-##### Array way
+#### Array way
 You can add multiple rules at once in the array way:
 ```php
 $validation->rules([
@@ -76,7 +76,7 @@ $validation->rules([
 ]);
 ```
 
-##### Short syntax
+#### Short syntax
 The same in the short syntax:
 ```php
 $validation->rules([
@@ -85,7 +85,7 @@ $validation->rules([
 ]);
 ```
 
-##### Set the human labels in the messages
+#### Set the human labels in the messages
 ```php
 $validation->setHumanLabels(true);
 
@@ -106,7 +106,7 @@ array(2) {
 }
 ```
 
-##### Set the custom messages and custom labels
+#### Set the custom messages and custom labels
 ```php
 // ...
 'repeatEmailAddress' => [
@@ -127,9 +127,9 @@ array(2) {
   }
 }
 ```
-Also you can overwrite default messages and labels by `setDefaultMessages` and `setLabels` methods.
+Also you can overwrite default messages and labels by `setDefaultMessages()` and `setLabels()` methods.
 
-##### Translation
+#### Translation
 The messages and labels are translated by default, so if you have in the `pl.php` lang file (Polish language):
 ```php
 return [
@@ -140,9 +140,8 @@ return [
 ];
 ```
 
-Validation will return
+Messages:
 ```code
-
 array(2) {
   ["emailAddress"]=>
   array(1) {
@@ -157,8 +156,10 @@ array(2) {
 }
 ```
 
-##### Filters
-You can add `Ice\Filter` to be sure to retreive valid format after validation:
+> The [Ice\I18n](http://doc.iceframework.org/latest/class/Ice/I18n.html) componet must be set to the `i18n` service in the *di*.
+
+#### Filters
+You can add some filter to be sure to retreive valid value after validation:
 ```php
 $data = [
     'username' => 'ice-123_framework'
@@ -179,9 +180,11 @@ string(12) "iceframework"
 ```
 In this way you can simply escape string, remove repeats, or cast values to `int`, `float`, etc.
 
+> The [Ice\Filter](http://doc.iceframework.org/latest/class/Ice/Filter.html) componet must be set to the `filter` service in the *di*.
+
 ### Validating Models
 ***
-In the models there is implemented the autovalidation, so you can simply validate some model's fields during creating. Just specify `rules` attribute:
+In the models there is implemented the autovalidation, so you can simply validate some [Ice\Mvc\Model](http://doc.iceframework.org/latest/class/Ice/Mvc/Model.html) fields during creating. Just specify `rules` property:
 ```php
 namespace App\Models;
 
@@ -206,7 +209,7 @@ if ($user->create($data) !== true) {
 }
 ```
 
-##### Extra validation
+#### Extra validation
 Add extra validation for fields that won't be save but must pass:
 ```php
 $extra = new Validation($data);
@@ -220,12 +223,12 @@ if ($this->create($data, $extra) !== true) {
 }
 ```
 
-> During updating the validation is not being used by default. Before `update` you should run:
+> During updating the validation is not being used by default. Before `update()` you should run:
 ```php
 $user->setValidation($validation);
 ```
 
-##### Valid fields
+#### Valid fields
 You can specify valid fields and only them will be saved:
 ```php
 $user = new Users();
@@ -237,9 +240,9 @@ if ($user->create(['username', 'password']) !== true) {
     $messages = $user->getMessages();
 }
 ```
-The `email` won't be saved.
+The `email` field won't be saved.
 
-Or globally in the `fields` attribute:
+Or globally in the `fields` property:
 ```php
 class Users extends Model
 {
@@ -258,8 +261,8 @@ if ($user->create($_POST) !== true) {
 ```
 Then only `email`, `username`, and `password` will be taken from the *$_POST*.
 
-##### Model hooks
-You can add hooks to run some code before or after validation:
+#### Model hooks
+You can add hooks to run some code before or after model's validation:
 ```php
 class Users extends Model
 {
@@ -270,7 +273,7 @@ class Users extends Model
             $this->set('password', md5($this->get('password')));
         });
 
-        parent::create($fields, $extra);
+        return parent::create($fields, $extra);
     }
 }
 ```
