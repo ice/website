@@ -7,4 +7,6 @@
   * [Konfiguracja serwera](/doc/introduction/server)
 * [Poradniki](/doc/tutorial)
   * [Poradnik 1: aplikacja hello](/doc/tutorial/hello)
+* [Komponenty](/doc/component)
+  * [Validation](/doc/component/validation)
 * [Api](http://doc.iceframework.org)
