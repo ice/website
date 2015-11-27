@@ -18,6 +18,6 @@ class ComponentController extends IndexController
 
     public function validationAction()
     {
-
+        $this->tag->setTitle(_t('Validation'));
     }
 }
