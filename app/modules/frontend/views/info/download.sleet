@@ -1,3 +1,4 @@
+{% use App\Libraries\Tool %}
 <h2>{{ _t('Download') }}</h2>
 <hr />
 <p>{{ _t('Ice is a C extension, so you need to download a binary for your platform or compile it from source code.') }} </p>
@@ -6,4 +7,15 @@
     <li>{{ _t('openSUSE package: :link', [':link' => link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank']) ~ ', ' ~ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank'])]) }}</li>
     <li>{{ link_to(['doc/introduction/readme', _t('Compilation')]) }}</li>
     <li>{{ link_to(['doc/introduction/windows', _t('Compilation on Windows')]) }}</li>
+</ul>
+<hr />
+<h4>{{ _t('Windows')}}</h4>
+<ul>
+    {% foreach ['ice-1.0.36-php-5.6.16-vc11-x64'] as version %}
+        <li>
+            <p>{{ link_to(['dll/' ~ version ~ '.zip', version, 'class': 'btn btn-default']) }}</p>
+            <p class="text-muted">{{ Tool::fileSize(root ~ '/public/dll/' ~ version ~ '.zip') }}, {{ date('Y-m-d H:i:s', filectime(root ~ '/public/dll/' ~ version ~ '.zip')) }}</p>
+            <p class="text-muted" title="md5">{{ md5_file(root ~ '/public/dll/' ~ version ~ '.zip') }}</p>
+        </li>
+    {% endforeach %}
 </ul>
