@@ -22,6 +22,7 @@ class InfoController extends Controller
     public function downloadAction()
     {
         $this->tag->setTitle(_t('Download'));
+        $this->view->setVar('root', __ROOT__);
     }
     
     /**
