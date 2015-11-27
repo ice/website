@@ -3,6 +3,7 @@
 <p>{{ _t('Ice is a C extension, so you need to download a binary for your platform or compile it from source code.') }} </p>
 
 <ul>
-    <li>{{ _t('openSUSE package: :link', [':link' => link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank'])]) }}</li>
+    <li>{{ _t('openSUSE package: :link', [':link' => link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank']) ~ ', ' ~ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank'])]) }}</li>
     <li>{{ link_to(['doc/introduction/readme', _t('Compilation')]) }}</li>
+    <li>{{ link_to(['doc/introduction/windows', _t('Compilation on Windows')]) }}</li>
 </ul>

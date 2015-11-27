@@ -18,6 +18,6 @@ class TutorialController extends IndexController
 
     public function helloAction()
     {
-
+        $this->tag->setTitle(_t('Hello'));
     }
 }
