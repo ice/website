@@ -10,7 +10,7 @@ Follow these instructions to build Ice in your Windows system. This guide is bas
 4. Get the [Ice framework](https://github.com/ice/framework/releases).
 
 #### Prepare build
-> Use the _VS2012 x86 Native Tools Command Prompt_. All commands in the rest of this document should be run in the appropriate command prompt.
+> Use the _VS2012 x64 Cross Tools Command Prompt_. All commands in the rest of this document should be run in the appropriate command prompt.
 
 1. Create the build directory `c:\php-sdk`.
 2. Unpack the _binary tools_ archive into this directory, it should contain three sub-directories: `bin/`, `script/` and `share/`.
@@ -37,8 +37,17 @@ buildconf
 ```
 3. Create your configure command and build PHP:
 ```sh
-configure --disable-all --enable-cli --enable-ice=shared
+configure --disable-all --disable-zts --enable-cli --enable-ice=shared
 nmake
 ```
 
-* The _php\_ice.dll_ file is now under `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\Release_TS`.  If you compiled with _--disable-zts_ the _php\_ice.dll_ file will be under `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\Release`.
+* The _php\_ice.dll_ file is now under `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release`.  If you compiled without _--disable-zts_ the _php\_ice.dll_ file will be under `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release_TS`.
+
+#### Recompile
+Recompile after you have done some changes:
+```sh
+nmake clean
+buildconf --force
+configure --disable-all --disable-zts --enable-cli --enable-ice=shared
+nmake
+```

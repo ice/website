@@ -10,7 +10,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby zbudować Ice w systemie Windo
 4. Pobierz [Ice framework](https://github.com/ice/framework/releases).
 
 #### Przygotowanie budowy
-> Używaj _VS2012 x86 Native Tools Command Prompt_. Wszystkie polecenia w dalszej części tego poradnika powinny być uruchamiane w tym właśnie wierszu poleceń.
+> Używaj _VS2012 x64 Cross Tools Command Prompt_. Wszystkie polecenia w dalszej części tego poradnika powinny być uruchamiane w tym właśnie wierszu poleceń.
 
 1. Utwórz katalog budowy `c:\php-sdk`.
 2. Rozpakuj archiwum _narzędzia binarne_ do tego katalogu, powinien zawierać trzy podkatalogi: `bin/`, `script/` i `share/`.
@@ -37,8 +37,17 @@ buildconf
 ```
 3. Stwórz swoją komendę konfiguracyjną i zbuduj PHP:
 ```sh
-configure --disable-all --enable-cli --enable-ice=shared
+configure --disable-all --disable-zts --enable-cli --enable-ice=shared
 nmake
 ```
 
-* Plik _php\_ice.dll_ jest teraz w `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\Release_TS`.  Jeśli kompilowałeś z opcją _--disable-zts_ plik _php\_ice.dll_ będzie w `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\Release`.
+* Plik _php\_ice.dll_ jest teraz w `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release`.  Jeśli kompilowałeś bez opcji _--disable-zts_ plik _php\_ice.dll_ będzie w `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release_TS`.
+
+#### Rekompilacja
+Rekompilacja po wykonaniu pewnych zmian:
+```sh
+nmake clean
+buildconf --force
+configure --disable-all --disable-zts --enable-cli --enable-ice=shared
+nmake
+```
