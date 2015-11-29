@@ -22,10 +22,18 @@ return [
     "Working with model:" => "Praca z modelem:",
     "Example of action:" => "Przykład akcji:",
     "Example of validation:" => "Przykład walidacji:",
+    /** Doc title */
+    "Introduction" => "Wprowadzenie",
+    "Readme" => "Przeczytaj mnie",
+    "Server configuration" => "Konfiguracja serwera",
+    "Build on Windows" => "Budowanie na Windows",
+    "Tutorials" => "Poradniki",
+    "Components" => "Komponenty",
     /** Website */
     "Contact" => "Kontakt",
     "Content" => "Zawartość",
     "Compilation" => "Kompilacja",
+    "Compilation on Windows" => "Kompilacja na Windows",
     "Database connection" => "Połączenie do bazy danych",
     "Documentation" => "Dokumentacja",
     "Download" => "Pobierz",
