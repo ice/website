@@ -4,39 +4,40 @@ Prosty i szybki framework PHP dostarczany jako rozszerzenie C.
 [![Latest Stable Version](https://poser.pugx.org/iceframework/framework/v/stable.svg)](https://packagist.org/packages/iceframework/framework) [![Total Downloads](https://poser.pugx.org/iceframework/framework/downloads.svg)](https://packagist.org/packages/iceframework/framework) [![Latest Unstable Version](https://poser.pugx.org/iceframework/framework/v/unstable.svg)](https://packagist.org/packages/iceframework/framework) [![License](https://poser.pugx.org/iceframework/framework/license.svg)](https://packagist.org/packages/iceframework/framework)
 
 ### Stadium
-To jest **dev** branża, musimy skupić się na dokumentacji, testach, poprawkach i czyszczeniu kodu, więc potrzebujemy Twojej pomocy.
-
 [![Build Status](https://travis-ci.org/ice/framework.svg?branch=dev)](https://travis-ci.org/ice/framework)
 [![Dependency Status](https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383)
 
 ##### Jak pomóc?
-1. Sforkuj repozytorium Ice framework.
+1. Sforkuj repozytorium [ice/framework](https://github.com/ice/framework).
 2. Utwórz nową branżę dla każdej funkcji lub ulepszenia.
 3. Wyślij żądanie z dowolnej gałęzi zawsze do **dev** branży*.
 
-*proszę nie wysyłać plików z katalogu `/ext`, tylko te z `/ice`.
+*proszę nie wysyłać plików z katalogu `build/` (są generowane automatycznie), tylko te z `ice/`.
 
 ### Instalacja
 Ice jest rozszerzeniem w C, więc musisz pobrać plik binarny dla Twojej platformy lub skompilować z kodu źródłowego.
 
 ### Pobierz
-OpenSUSE pakiet: [php5-ice](http://software.opensuse.org/package/php5-ice)
+* openSUSE pakiet: [php5-ice](http://software.opensuse.org/package/php5-ice), [php7-ice](http://software.opensuse.org/package/php7-ice)
+* Windows: [DLLs](http://www.iceframework.org/info/download)
+* kod źródłowy [wydania stabilne](https://github.com/ice/framework/releases)
 
-### Kompilacja
-Są dwa sposoby kompilacji Ice framework*:
-* kompilacja z katalogu `/ext` i C-plików - zalecany dla początkujących oraz dla maszyn produkcyjnych; C-pliki są generowane przez zespół Ice od czasu do czasu (np. dla każdego wydania)
-* zbuduj przez [zephir](https://github.com/ice/zephir) (wygeneruj, skompiluj i zainstaluj rozszerzenie) - zalecany dla deweloperów oraz testowania następnego wydania; w ten sposób można wygenerować C-pliki z Zep-plików, dzięki czemu można uzyskać najnowsze funkcje/poprawki, ale to może być niestabilne
+### Kompilacja*
+* Kompilacja na Linux/Unix/Mac. Są dwa sposoby kompilacji Ice framework*:
+ * kompilacja z katalogu `build/` i C-plików - zalecany dla początkujących oraz dla maszyn produkcyjnych; C-pliki są generowane przez zespół Ice po złaczeniu i przejściu testów
+ * zbuduj przez [zephir](https://github.com/ice/zephir) (wygeneruj, skompiluj i zainstaluj rozszerzenie) - zalecany dla deweloperów oraz testowania następnego wydania; w ten sposób można wygenerować C-pliki z Zep-plików, dzięki czemu można uzyskać najnowsze funkcje/poprawki, ale to może być niestabilne; po generowaniu przez zephira pliki będą w katalogu `ext/`
+* [budowanie na Windows](http://www.iceframework.org//doc/introduction/windows)
 
 *przed kompilacją przeczytaj proszę [Wymagania](#requirements).
 
 ***
 
-#### Kompilacja z `/ext`:
+#### Kompilacja z `build/`:
 Sklonuj i zainstaluj z GitHub:
 ```sh
-git clone https://github.com/ice/framework.git
-cd framework/ext/
-sudo ./install
+git clone --depth=1 https://github.com/ice/framework.git
+cd framework/
+./install
 ```
 
 ###### albo zainstaluj przez [composer](https://getcomposer.org/):
@@ -54,7 +55,7 @@ Na koniec zrestartuj serwer www
 ***
 
 #### Zbuduj przez zephir* (wygeneruj, skompiluj i zainstaluj rozszerzenie):
-###### Domyślnie `./vendor/bin/zephir` uruchamia zephir. Musisz uruchomić zephira będąc w katalogu `/framework` aby zbudować Ice:
+###### Domyślnie `./vendor/bin/zephir` uruchamia zephir. Aby zbudować Ice musisz uruchomić zephira będąc w katalogu `framework/`:
 ```sh
 cd framework/
 ./vendor/bin/zephir build
@@ -63,7 +64,7 @@ cd framework/
 *jeśli nie masz zephira musisz skompilować zephir.
 
 ##### Kompilacja zephira
-###### Możesz zainstalować zephir przez composer. Jeśli masz już ice i jesteś w katalogu `/framework` odpal:
+###### Możesz zainstalować zephir przez composer. Jeśli masz już ice i jesteś w katalogu `framework/` odpal:
 ```sh
 composer update
 ```
@@ -97,12 +98,12 @@ cd framework/
 Możesz budować z C-plików lub zbudować przez zephir
 
 ##### Aby zbudować rozszerzenie PHP:
-* g++ >= 4.4/clang++ >= 3.x/vc++ 9
-* gnu make 3.81 lub nowszy
+* gcc >= 4.4/clang++ >= 3.x/vc++ 11
+* gnu make >= 3.81/Windows nmake
 * nagłówki i narzędzia deweloperskie php
 
 ##### Aby skompilować zephir-parser
-* json-c (z Github)
+* json-c (z GitHub)
 * re2c
 
 Ubuntu:
@@ -120,8 +121,11 @@ CentOS/Fedora/RHEL
 sudo yum install php-devel pcre-devel gcc make re2c
 ```
 
+Windows  
+[Instalacja Zephira](https://github.com/phalcon/zephir/blob/master/WINDOWS.md)
+
 ### Licencja
-Ice jest otwartym oprogramowaniem na nowej licencji BSD. Zobacz plik LICENSE, aby uzyskać więcej informacji.
+Ice jest otwartym oprogramowaniem na nowej licencji BSD. Zobacz plik [LICENSE](http://www.iceframework.org/license), aby uzyskać więcej informacji.
 
 ***
 Prawa autorskie (c) 2014-2015 Zespół Ice.
