@@ -53,6 +53,7 @@ return [
     "Sleet template engine" => "Silnik szablonów Sleet",
     "Something is wrong" => "Coś jest nie tak",
     "Status :code" => "Status :code",
+    "Subscribe" => "Wesprzyj",
     "Success" => "Sukces",
     "Polish" => "Polski",
     "You don't need learn or use the C language, since the functionality is exposed as PHP classes ready for you to use." => "Nie musisz uczyć się lub korzystać z języka C, ponieważ funkcjonalnośi są wyeksponowane jako gotowe do użycia klasy PHP.",

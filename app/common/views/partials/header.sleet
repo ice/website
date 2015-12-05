@@ -8,6 +8,7 @@
             <ul class="nav navbar-nav pull-right pull-none">
                 <li>{{ link_to(['info/download', _t('Download')]) }}</li>
                 <li>{{ link_to(['doc', _t('Documentation')]) }}</li>
+                <li>{{ link_to(['https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5MWRA6KJKZ8A6&os0=small', _t('Subscribe'), 'local': false, 'target' => '_blank']) }}</li>
                 <li class="dropdown dropdown hidden-sm">
                     {{ link_to([ '#', 'class' : 'dropdown-togle', 'data-toggle' : 'dropdown', _t('Language') ~ '<b class="caret"></b>' ]) }}
                     <ul class="dropdown-menu">
