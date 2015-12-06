@@ -1,15 +1,21 @@
 {% use App\Libraries\Tool %}
 <h2>{{ _t('Download') }}</h2>
 <hr />
-<p>{{ _t('Ice is a C extension, so you need to download a binary for your platform or compile it from source code.') }} </p>
-
+<p>{{ _t('Ice is a C extension, so you need to download a binary package for your platform or compile it from source code.') }} </p>
 <ul>
-    <li>{{ _t('openSUSE package: :link', [':link' => link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank']) ~ ', ' ~ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank'])]) }}</li>
     <li>{{ link_to(['doc/introduction/readme', _t('Compilation')]) }}</li>
     <li>{{ link_to(['doc/introduction/windows', _t('Compilation on Windows')]) }}</li>
 </ul>
+<br />
+<h3>{{ _t('Packages') }}</h3>
 <hr />
-<h4>{{ _t('Windows')}}</h4>
+<h5>{{ _t('openSUSE')}}</h5>
+<ul>
+    <li>{{ link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank']) }}</li>
+    <li>{{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
+</ul>
+<hr />
+<h5>{{ _t('Windows')}}</h5>
 <ul>
     {% foreach ['ice-1.0.36-php-5.6.16-nts-vc11-x64', 'ice-1.0.36-php-5.6.16-nts-vc11-x86'] as version %}
         {% if file_exists('dll/' ~ version ~ '.zip') %}
