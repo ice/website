@@ -9,5 +9,6 @@
 * [Tutorials](/doc/tutorial)
   * [Tutorial 1: hello application](/doc/tutorial/hello)
 * [Components](/doc/component)
+  * [Pagination](/doc/component/pagination)
   * [Validation](/doc/component/validation)
 * [Api](http://doc.iceframework.org)
