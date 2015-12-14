@@ -16,6 +16,11 @@ class ComponentController extends IndexController
         $this->tag->setTitle(_t('Components'));
     }
 
+    public function paginationAction()
+    {
+        $this->tag->setTitle(_t('Pagination'));
+    }
+
     public function validationAction()
     {
         $this->tag->setTitle(_t('Validation'));
