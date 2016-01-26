@@ -218,6 +218,36 @@ return new \Ice\Mvc\App($di);
 
 As you can see, the bootstrap file is very short and we do not need to include any additional files. We have set ourselves a flexible MVC application in about 50 lines of code.
 
+*Since Ice 1.1.0 services are predefined, so bootstrap file can be simpler:
+```php
+namespace App;
+
+// Create a dependency injector container
+$di = new \Ice\Di();
+
+// Register App namespace for App\Controller, App\Model, App\Library, etc.
+$di->loader
+    ->addNamespace(__NAMESPACE__, __DIR__)
+    ->register();
+
+// Set some service's settings
+$di->dispatcher
+    ->setNamespace(__NAMESPACE__);
+
+$di->router
+    ->setRoutes([
+        ['GET', '/{controller:[a-z]+}/{action:[a-z]+[/]?}'],
+        ['GET', '/{controller:[a-z]+[/]?}'],
+        ['GET', ''],
+    ]);
+
+$di->view
+    ->setViewsDir(__DIR__ . '/View/');
+
+// Create and return a MVC application
+return new \Ice\Mvc\App($di);
+```
+
 ***
 ### Creating a controller
 By default Ice will look for a controller named _Index_. It is the starting point when no controller or action has been passed in the request. The index controller `App/Controller/IndexController.php` looks like:

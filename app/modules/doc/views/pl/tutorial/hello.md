@@ -218,6 +218,36 @@ return new \Ice\Mvc\App($di);
 
 Jak widać, plik bootstrap jest bardzo krótki i nie trzeba dołączać żadnych dodatkowych plików. Postawiliśmy sobie elastyczną aplikację MVC w około 50 linii kodu.
 
+*Od Ice 1.1.0 usługi są predefiniowane, więc plik bootstrap może być prostszy:
+```php
+namespace App;
+
+// Create a dependency injector container
+$di = new \Ice\Di();
+
+// Register App namespace for App\Controller, App\Model, App\Library, etc.
+$di->loader
+    ->addNamespace(__NAMESPACE__, __DIR__)
+    ->register();
+
+// Set some service's settings
+$di->dispatcher
+    ->setNamespace(__NAMESPACE__);
+
+$di->router
+    ->setRoutes([
+        ['GET', '/{controller:[a-z]+}/{action:[a-z]+[/]?}'],
+        ['GET', '/{controller:[a-z]+[/]?}'],
+        ['GET', ''],
+    ]);
+
+$di->view
+    ->setViewsDir(__DIR__ . '/View/');
+
+// Create and return a MVC application
+return new \Ice\Mvc\App($di);
+```
+
 ***
 ### Tworzenie kontrolera
 Domyślnie Ice szuka kontrolera o nazwie _Index_. To jest punkt wyjścia, gdy kontroler lub akcja nie zostały przekazane w żądaniu. Kontroler index `App/Controler/IndexController.php` wygląda tak:
