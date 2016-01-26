@@ -1,7 +1,7 @@
 ## Benchmark
 ***
 ### Environment
-The testing hardware environment is as follows:
+There is no special settings/optimizations to boost performance of some frameworks! The testing hardware environment is as follows:
 
 #### Hardware
 * CPU: i7-4702MQ up to 3.2 GHz 4 cores 8 threads
@@ -34,7 +34,7 @@ The testing hardware environment is as follows:
 
 ![Files](/img/doc/benchmark4.jpg?v3)
 
-### Table
+### Table (29 Nov 2015)
 |framework          |requests per second|relative|peak memory|relative|files|relative|
 |-------------------|------------------:|-------:|----------:|-------:|----:|-------:|
 |phalcon-2.0        |           4,991.30|   87.06|       0.29|    1.04|    5|    1.25|
