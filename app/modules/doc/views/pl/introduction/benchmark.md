@@ -1,7 +1,7 @@
 ## Benchmark
 ***
 ### Środowisko
-Sprzęt użyty do testowania jest następujący:
+Nie ma żadnych specjalnych ustawień/optymalizacji w celu zwiększenia wydajności niektórych frameworków! Sprzęt użyty do testowania jest następujący:
 
 #### Sprzęt
 * Procesor: i7-4702MQ up to 3.2 GHz 4 rdzenie 8 wątków
@@ -34,7 +34,7 @@ Sprzęt użyty do testowania jest następujący:
 
 ![Files](/img/doc/benchmark4.jpg?v3)
 
-### Table
+### Table (29 Lis 2015)
 |framework          |requests per second|relative|peak memory|relative|files|relative|
 |-------------------|------------------:|-------:|----------:|-------:|----:|-------:|
 |phalcon-2.0        |           4,991.30|   87.06|       0.29|    1.04|    5|    1.25|
