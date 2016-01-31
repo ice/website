@@ -14,6 +14,9 @@ Prosty i szybki framework PHP dostarczany jako rozszerzenie C.
 
 *proszę nie wysyłać plików z katalogu `build/` (są generowane automatycznie), tylko te z `ice/`.
 
+### Benchmark
+[![RPS](/img/doc/benchmark.jpg){.img-responsive}](/doc/introduction/benchmark)
+
 ### Instalacja
 Ice jest rozszerzeniem w C, więc musisz pobrać plik binarny dla Twojej platformy lub skompilować z kodu źródłowego.
 
