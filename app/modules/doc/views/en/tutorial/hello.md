@@ -294,7 +294,7 @@ hello world
 
 If you access the application from your browser, you should see something like this:
 
-![Hello](/img/doc/hello.jpg)
+![Hello](/img/doc/hello.jpg){.img-responsive}
 
 ***
 ### Database connection
@@ -416,7 +416,7 @@ $this->view->setVar('users', Users::find());
 
 So, you should see:
 
-![No users](/img/doc/hello2.jpg)
+![No users](/img/doc/hello2.jpg){.img-responsive}
 
 The `App/View/user/index.phtml` view displays all users (if found) and link to sign up action:
 ```php
@@ -432,7 +432,7 @@ The `App/View/user/index.phtml` view displays all users (if found) and link to s
 
 Follow the _Sign up_ link and you should see this form:
 
-![Sign up](/img/doc/hello3.jpg)
+![Sign up](/img/doc/hello3.jpg){.img-responsive}
 
 The view `App/View/user/signup.phtml` with the form definition:
 ```php
@@ -446,7 +446,7 @@ The view `App/View/user/signup.phtml` with the form definition:
 
 So try send the form, not fill the fields, just click the _Sign up_ button:
 
-![Validation error](/img/doc/hello4.jpg)
+![Validation error](/img/doc/hello4.jpg){.img-responsive}
 
 You see those messages because the validation in the `postSignupAction` not pass:
 ```php
@@ -482,7 +482,7 @@ You should see _Thanks for registering!_ message.
 
 Make sure whether user has signed up, go to `hello/user` to see all users, your browser will show something like this:
 
-![All users](/img/doc/hello5.jpg)
+![All users](/img/doc/hello5.jpg){.img-responsive}
 
 ***
 ### Conclusion
