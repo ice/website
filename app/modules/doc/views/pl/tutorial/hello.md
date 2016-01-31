@@ -293,7 +293,7 @@ hello world
 
 Jeśli masz dostęp do aplikacji z poziomu przeglądarki, powinieneś zobaczyć coś takiego:
 
-![Hello](/img/doc/hello.jpg)
+![Hello](/img/doc/hello.jpg){.img-responsive}
 
 ***
 ### Połączenie z bazą danych
@@ -415,7 +415,7 @@ $this->view->setVar('users', Users::find());
 
 Powinieneś zobaczyć:
 
-![No users](/img/doc/hello2.jpg)
+![No users](/img/doc/hello2.jpg){.img-responsive}
 
 Widok `App/View/user/index.phtml` wyświetla wszystkich użytkowników (jeśli są) i link do rejestracji:
 ```php
@@ -431,7 +431,7 @@ Widok `App/View/user/index.phtml` wyświetla wszystkich użytkowników (jeśli s
 
 Po kliknięciu w _Sign up_ i powinieneś zobaczyć formularz:
 
-![Sign up](/img/doc/hello3.jpg)
+![Sign up](/img/doc/hello3.jpg){.img-responsive}
 
 Widok `App/View/user/signup.phtml` z definicją formularza:
 ```php
@@ -445,7 +445,7 @@ Widok `App/View/user/signup.phtml` z definicją formularza:
 
 Więc spróbuj wysłać formularz, nie wypełniaj pól, po prostu kliknij _Sign up_ przycisk:
 
-![Validation error](/img/doc/hello4.jpg)
+![Validation error](/img/doc/hello4.jpg){.img-responsive}
 
 Powinieneś zobaczyć powyższe błędy ponieważ walidacja w `postSignupAction` nie przechodzi:
 ```php
@@ -481,7 +481,7 @@ Powinieneś zobaczyć _Thanks for registering!_.
 
 Upewnij się, czy użytkownik został zarejestrowany, przejdź do `hello/user`, aby zobaczyć wszystkich użytkowników. Twoja przeglądarka wyświetli coś w tym stylu:
 
-![All users](/img/doc/hello5.jpg)
+![All users](/img/doc/hello5.jpg){.img-responsive}
 
 ***
 ### Wnioski
