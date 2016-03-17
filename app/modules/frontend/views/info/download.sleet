@@ -7,6 +7,10 @@
     <li>{{ link_to(['doc/introduction/windows', _t('Compilation on Windows')]) }}</li>
 </ul>
 <br />
+<h3>{{ _t('Stage') }}</h3>
+<hr />
+<p>{{ link_to(['https://travis-ci.org/ice/framework', image(['https://travis-ci.org/ice/framework.svg?branch=dev', 'Build Status', 'local': false]), 'local': false]) }} {{ link_to(['https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383', image(['https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383/badge.svg?style=flat', 'Dependency Status', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/stable.svg', 'Latest Stable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/downloads.svg', 'Total Downloads', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/unstable.svg', 'Latest Unstable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/license.svg', 'License', 'local': false]), 'local': false]) }}</p>
+<br />
 <h3>{{ _t('Packages') }}</h3>
 <hr />
 <h5>{{ _t('openSUSE')}}</h5>
@@ -14,16 +18,23 @@
     <li>{{ link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank']) }}</li>
     <li>{{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
 </ul>
-<hr />
 <h5>{{ _t('Windows')}}</h5>
 <ul>
-    {% foreach ['ice-1.0.36-php-5.6.16-nts-vc11-x64', 'ice-1.0.36-php-5.6.16-nts-vc11-x86'] as version %}
-        {% if file_exists('dll/' ~ version ~ '.zip') %}
-        <li>
-            <p>{{ link_to(['dll/' ~ version ~ '.zip', version, 'class': 'btn btn-default']) }}</p>
-            <p class="text-muted">{{ Tool::fileSize(root ~ '/public/dll/' ~ version ~ '.zip') }}, {{ date('Y-m-d H:i:s', filectime(root ~ '/public/dll/' ~ version ~ '.zip')) }}</p>
-            <p class="text-muted" title="md5">{{ md5_file(root ~ '/public/dll/' ~ version ~ '.zip') }}</p>
+    {% foreach versions as version : files %}
+        <li><strong>{{ version }}</strong>
+            <ul>
+            {% foreach files as file %}
+                {% if file_exists('dll/' ~ file ~ '.zip') %}
+                    <li>
+                        <p class="small">
+                            {{ link_to(['dll/' ~ file ~ '.zip', file, 'class': 'btn btn-default btn-sm']) }}<br />
+                            {{ Tool::fileSize(root ~ '/public/dll/' ~ file ~ '.zip') }}, {{ date('Y-m-d H:i:s', filectime(root ~ '/public/dll/' ~ file ~ '.zip')) }}<br />
+                            <span class="text-muted " title="md5 sum">{{ md5_file(root ~ '/public/dll/' ~ file ~ '.zip') }}</span>
+                        </p>
+                    </li>
+                {% endif %}
+            {% endforeach %}
+            </ul>
         </li>
-        {% endif %}
     {% endforeach %}
 </ul>
