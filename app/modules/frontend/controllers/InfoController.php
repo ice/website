@@ -22,7 +22,20 @@ class InfoController extends Controller
     public function downloadAction()
     {
         $this->tag->setTitle(_t('Download'));
-        $this->view->setVar('root', __ROOT__);
+        $this->view->setVars([
+            'root' => __ROOT__,
+            'versions' => [
+                '1.1.2' => [
+                    'ice-1.1.2-php-5.6-nts-vc11-x64',
+                    'ice-1.1.2-php-5.6-nts-vc11-x86'
+                ],
+                '1.0.36' => [
+                    'ice-1.0.36-php-5.6.16-nts-vc11-x64',
+                    'ice-1.0.36-php-5.6.16-nts-vc11-x86'
+                ]
+            ]
+        ]);
+
     }
     
     /**

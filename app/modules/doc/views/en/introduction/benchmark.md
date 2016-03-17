@@ -1,7 +1,8 @@
 ## Benchmark
 ***
 ### Environment
-There is no special settings/optimizations to boost performance of some frameworks! The testing hardware environment is as follows:
+There is no special settings/optimizations to boost performance of some frameworks and no cache!  
+The testing environment is as follows:
 
 #### Hardware
 * CPU: i7-4702MQ up to 3.2 GHz 4 cores 8 threads
