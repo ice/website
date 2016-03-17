@@ -53,6 +53,7 @@ return [
     "Sleet template engine" => "Silnik szablonów Sleet",
     "Something is wrong" => "Coś jest nie tak",
     "Status :code" => "Status :code",
+    "Stage" => "Stadium",
     "Subscribe" => "Wesprzyj",
     "Success" => "Sukces",
     "Polish" => "Polski",

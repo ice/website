@@ -1,7 +1,8 @@
 ## Benchmark
 ***
 ### Środowisko
-Nie ma żadnych specjalnych ustawień/optymalizacji w celu zwiększenia wydajności niektórych frameworków! Sprzęt użyty do testowania jest następujący:
+Nie ma żadnych specjalnych ustawień/optymalizacji w celu zwiększenia wydajności niektórych frameworków i nie ma cachowania!  
+Środowisko testowe jest następujące:
 
 #### Sprzęt
 * Procesor: i7-4702MQ up to 3.2 GHz 4 rdzenie 8 wątków
