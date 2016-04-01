@@ -5,15 +5,15 @@ Nie ma żadnych specjalnych ustawień/optymalizacji w celu zwiększenia wydajno�
 Środowisko testowe jest następujące:
 
 #### Sprzęt
-* Procesor: i7-4702MQ up to 3.2 GHz 4 rdzenie 8 wątków
-* Pamięć: 12GB 1600 MHz DDR3
-* Dysk: SSD 120GB odczyt 540MB/s zapis 480MB/s
+* Procesor: i7-5820K do 3.6GHz 6 rdzeni 16 wątków
+* Pamięć: 16GB 2133MHz DDR4
+* Dysk: NVMe SSD 256GB odczyt 2200MB/s zapis 900MB/s
 
 #### Oprogramowanie
-* System operacyjny: openSUSE Tubmleweed 20151128 64-bit
-* Kernel: 4.3.0
-* Serwer www: Nginx 1.8.0
-* PHP-FPM: 5.6.15
+* System operacyjny: openSUSE Tubmleweed 20160329 64-bit
+* Kernel: 4.5.0
+* Serwer www: Nginx 1.8.1
+* PHP-FPM: 5.6.19
 
 #### Skrypt
 [PHP Framework Benchmark](https://github.com/kenjis/php-framework-benchmark)
@@ -21,33 +21,33 @@ Nie ma żadnych specjalnych ustawień/optymalizacji w celu zwiększenia wydajno�
 ### Wyniki
 ##### Żądania na sekundę
 
-![RPS](/img/doc/benchmark.jpg?v3)
+![RPS](/img/doc/benchmark.jpg?v=31032016)
 
 ##### Użyta pamięć
 
-![Memory](/img/doc/benchmark2.jpg?v3)
+![Memory](/img/doc/benchmark2.jpg?v=31032016)
 
 ##### Czas wykonywania
 
-![Time](/img/doc/benchmark3.jpg?v3)
+![Time](/img/doc/benchmark3.jpg?v=31032016)
 
 ##### Dołączonych plików
 
-![Files](/img/doc/benchmark4.jpg?v3)
+![Files](/img/doc/benchmark4.jpg?v=31032016)
 
-### Table (29 Lis 2015)
-|framework          |requests per second|relative|peak memory|relative|files|relative|
-|-------------------|------------------:|-------:|----------:|-------:|----:|-------:|
-|phalcon-2.0        |           4,991.30|   87.06|       0.29|    1.04|    5|    1.25|
-|ice-1.0            |           6,139.83|  107.10|       0.28|    1.00|    4|    1.00|
-|tipsy-0.10         |           1,469.09|   25.63|       0.59|    2.11|   18|    4.50|
-|fatfree-3.5        |             900.31|   15.70|       0.95|    3.39|    9|    2.25|
-|slim-2.6           |             766.89|   13.38|       1.06|    3.79|   24|    6.00|
-|ci-3.0             |             556.66|    9.71|       1.18|    4.21|   26|    6.50|
-|yii-2.0            |             308.58|    5.38|       2.50|    8.93|   49|   12.25|
-|silex-1.3          |             287.22|    5.01|       2.06|    7.36|   64|   16.00|
-|fuel-2.0-dev       |             152.04|    2.65|       3.32|   11.86|  128|   32.00|
-|cake-3.1           |             162.30|    2.83|       4.08|   14.57|   84|   21.00|
-|symfony-2.7        |              96.14|    1.68|       7.90|   28.21|  106|   26.50|
-|laravel-5.1        |              86.77|    1.51|       7.59|   27.11|   39|    9.75|
-|zf-2.5             |              57.33|    1.00|       6.39|   22.82|  204|   51.00|
+### Table (31 Marz 2016)
+|framework          |requests per second|relative|peak memory|relative|files|relative| 
+|-------------------|------------------:|-------:|----------:|-------:|----:|-------:| 
+|phalcon-2.0        |              7,120|   53.19|       0.29|    1.05|    5|    1.25| 
+|ice-1.1            |              8,062|   60.22|       0.28|    1.02|    4|    1.00| 
+|tipsy-0.10         |              2,426|   18.12|       0.59|    2.14|   18|    4.50| 
+|fatfree-3.5        |              1,521|   11.36|       0.95|    3.45|    9|    2.25| 
+|slim-2.6           |              1,257|    9.39|       1.06|    3.85|   24|    6.00| 
+|ci-3.0             |                894|    6.68|       1.18|    4.28|   26|    6.50| 
+|yii-2.0            |                540|    4.03|       2.49|    9.03|   49|   12.25| 
+|silex-1.3          |                507|    3.79|       2.06|    7.47|   64|   16.00| 
+|fuel-1.8-dev       |                534|    3.99|       1.98|    7.18|   45|   11.25| 
+|cake-3.1           |                259|    1.94|       4.02|   14.59|   84|   21.00| 
+|symfony-3.0        |                134|    1.00|       7.69|   27.90|  214|   53.50| 
+|laravel-5.1        |                148|    1.11|       7.32|   26.56|   39|    9.75| 
+|zf-2.5             |                158|    1.18|       6.34|   23.00|  204|   51.00|
