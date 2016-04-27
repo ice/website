@@ -4,12 +4,11 @@ namespace App\Modules\Frontend\Controllers;
 
 use App\Error;
 use App\Extensions\Controller;
+use App\Extensions\RecursiveSortedIterator;
 use App\Libraries\Email;
 use Ice\Validation;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use Iterator;
-use SplHeap;
 
 /**
  * Frontend info controller
@@ -126,20 +125,5 @@ class InfoController extends Controller
                 throw new Error($email->ErrorInfo);
             }
         }
-    }
-}
-
-class RecursiveSortedIterator extends SplHeap
-{
-    public function __construct(Iterator $iterator)
-    {
-        foreach ($iterator as $item) {
-            $this->insert($item);
-        }
-    }
-
-    public function compare($b, $a)
-    {
-        return -strcmp($a->getRealpath(), $b->getRealpath());
     }
 }
