@@ -6,6 +6,10 @@ use App\Error;
 use App\Extensions\Controller;
 use App\Libraries\Email;
 use Ice\Validation;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use Iterator;
+use SplHeap;
 
 /**
  * Frontend info controller
@@ -22,18 +26,38 @@ class InfoController extends Controller
     public function downloadAction()
     {
         $this->tag->setTitle(_t('Download'));
+
+        $dit = new RecursiveDirectoryIterator(__ROOT__ . '/public/dll/', RecursiveDirectoryIterator::SKIP_DOTS);
+        $rit = new RecursiveIteratorIterator($dit, RecursiveIteratorIterator::SELF_FIRST);
+        $sit = new RecursiveSortedIterator($rit);
+
+        $windows = [];
+
+        foreach ($sit as $item) {
+            if (!$item->isDir() && $item->getExtension() == 'zip') {
+                if (preg_match(
+                    '/(ice-(\d+\.\d+\.\d+)-php-(\d+\.\d+)-(\w+)-vc\d+-x(\d+))\.zip/i',
+                    $item->getFilename(),
+                    $matches
+                )) {
+                    $file = $matches[1];
+                    $version = $matches[2];
+                    $php = $matches[3];
+                    $release = strtoupper($matches[4]);
+                    $arch = $matches[5];
+
+                    $windows[$php][$version][] = [
+                        'name' => $file,
+                        'release' => $release,
+                        'arch' => $arch,
+                    ];
+                }
+            }
+        }
+
         $this->view->setVars([
             'root' => __ROOT__,
-            'versions' => [
-                '1.1.2' => [
-                    'ice-1.1.2-php-5.6-nts-vc11-x64',
-                    'ice-1.1.2-php-5.6-nts-vc11-x86'
-                ],
-                '1.0.36' => [
-                    'ice-1.0.36-php-5.6.16-nts-vc11-x64',
-                    'ice-1.0.36-php-5.6.16-nts-vc11-x86'
-                ]
-            ]
+            'windows' => $windows
         ]);
 
     }
@@ -102,5 +126,20 @@ class InfoController extends Controller
                 throw new Error($email->ErrorInfo);
             }
         }
+    }
+}
+
+class RecursiveSortedIterator extends SplHeap
+{
+    public function __construct(Iterator $iterator)
+    {
+        foreach ($iterator as $item) {
+            $this->insert($item);
+        }
+    }
+
+    public function compare($b, $a)
+    {
+        return -strcmp($a->getRealpath(), $b->getRealpath());
     }
 }
