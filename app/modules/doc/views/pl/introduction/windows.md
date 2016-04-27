@@ -4,7 +4,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby zbudować Ice w systemie Windo
 
 #### Wymagania
 1. Jeśli kompilujesz *PHP 5.5 lub 5.6* zainstaluj [Visual Studio 2012 Express for Windows Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=34673).
-* Aby skompilować *PHP 7.0+* potrzebujesz _Visual C++ 14.0_ (Visual Studio 2015).
+* Aby skompilować *PHP 7.0+* potrzebujesz _Visual C++ 14.0_ (zainstaluj [Visual Studio 2015 Community](https://www.microsoft.com/en-us/download/details.aspx?id=48146)).
 2. Pobierz kod źródłowy PHP z [Wydania stabilne](http://windows.php.net/download/) (kliknij _Download source code_).
 3. Pobierz narzędzia binarne z [php-sdk](http://windows.php.net/downloads/php-sdk/) nazwa archiwum narzędzi binarnych to np. _php-sdk-binary-tools-20110915.zip_ (pobierz ostatnią wersję) i biblioteki od których PHP zależy np. _deps-5.6-vc11-x64.7z_
 4. Pobierz [Ice framework](https://github.com/ice/framework/releases).
@@ -43,16 +43,12 @@ nmake
 
 * Plik _php\_ice.dll_ jest teraz w `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release`.  Jeśli kompilowałeś bez opcji _--disable-zts_ plik _php\_ice.dll_ będzie w `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release_TS`.
 
-#### Rekompilacja
+#### Rekompilacja (z opcją bezpieczeństwa wątków)
 Rekompilacja po wykonaniu pewnych zmian:
-1. Oczyścić ze starych plików binarnych:
+1. Oczyścić ze starych plików binarnych, zrekonfiguruj i zbuduj PHP:
 ```sh
 nmake clean
 buildconf --force
-```
-
-2. Stwórz swoją komendę konfiguracyjną i zbuduj PHP:
-```sh
-configure --disable-all --disable-zts --enable-cli --enable-ice=shared
+configure --disable-all --enable-cli --enable-ice=shared
 nmake
 ```

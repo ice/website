@@ -4,7 +4,7 @@ Follow these instructions to build Ice in your Windows system. This guide is bas
 
 #### Requirements
 1. If compiling *PHP 5.5 or 5.6* install [Visual Studio 2012 Express for Windows Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=34673).
-* To compile *PHP 7.0+* you need _Visual C++ 14.0_ (Visual Studio 2015).
+* To compile *PHP 7.0+* you need _Visual C++ 14.0_ (install [Visual Studio 2015 Community](https://www.microsoft.com/en-us/download/details.aspx?id=48146)).
 2. Get the PHP source from [Stable releases](http://windows.php.net/download/) (click the _Download source code_).
 3. Get the binary tools from [php-sdk](http://windows.php.net/downloads/php-sdk/) the binary tools archives are named eg. _php-sdk-binary-tools-20110915.zip_ (get the latest one) and the libraries on which PHP depends eg. _deps-5.6-vc11-x64.7z_
 4. Get the [Ice framework](https://github.com/ice/framework/releases).
@@ -43,16 +43,12 @@ nmake
 
 * The _php\_ice.dll_ file is now under `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release`.  If you compiled without _--disable-zts_ the _php\_ice.dll_ file will be under `C:\php-sdk\phpdev\vc11\x64\php-5.6.16-src\x64\Release_TS`.
 
-#### Recompile
+#### Recompile (with Thread Safe option)
 Recompile after you have done some changes:
-1. Clean up old compiled binaries:
+1. Clean up old compiled binaries, reconfigure and build PHP:
 ```sh
 nmake clean
 buildconf --force
-```
-
-2. Create your configure command and build PHP:
-```sh
-configure --disable-all --disable-zts --enable-cli --enable-ice=shared
+configure --disable-all --enable-cli --enable-ice=shared
 nmake
 ```

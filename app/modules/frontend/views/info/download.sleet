@@ -19,22 +19,30 @@
     <li>{{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
 </ul>
 <h5 id="windows">{{ _t('Windows')}}</h5>
-<ul>
-    {% foreach versions as version : files %}
-        <li><strong>{{ version }}</strong>
+<div class="row">
+    {% foreach windows as php : versions %}
+        <div class="col-sm-6">
             <ul>
-            {% foreach files as file %}
-                {% if file_exists('dll/' ~ file ~ '.zip') %}
-                    <li>
-                        <p class="small">
-                            {{ link_to(['dll/' ~ file ~ '.zip', file, 'class': 'btn btn-default btn-sm']) }}<br />
-                            {{ Tool::fileSize(root ~ '/public/dll/' ~ file ~ '.zip') }}, {{ date('Y-m-d H:i:s', filectime(root ~ '/public/dll/' ~ file ~ '.zip')) }}<br />
-                            <span class="text-muted " title="md5 sum">{{ md5_file(root ~ '/public/dll/' ~ file ~ '.zip') }}</span>
-                        </p>
-                    </li>
-                {% endif %}
-            {% endforeach %}
+                <li><strong>PHP {{ php }}</strong>
+                    {% set i = 0 %}
+                    <ul>
+                        {% foreach versions as version : files %}
+                            <li><strong class="{{ i ? 'text-muted' : 'text-info' }}">Ice {{ version }}</strong>
+                                <ul>
+                                    {% foreach files as file %}
+                                    <li class="small">
+                                        {{ link_to(['dll/' ~ file['name'] ~ '.zip', file['name'], 'class': 'btn btn-' ~ (i ? 'default' : 'info') ~ ' btn-xs']) }}<br />
+                                        <span>{{ _t('<b>%s</b> release <b>x%d</b>', [file['release'], file['arch']]) }}</span><br />                                    
+                                        {{ Tool::fileSize(root ~ '/public/dll/' ~ file['name'] ~ '.zip') }}, {{ date('Y-m-d H:i:s', filectime(root ~ '/public/dll/' ~ file['name'] ~ '.zip')) }}<br />
+                                        <span class="text-muted " title="md5 sum">{{ md5_file(root ~ '/public/dll/' ~ file['name'] ~ '.zip') }}</span>
+                                    {% endforeach %}
+                                </ul>
+                            </li>
+                            {% var i++ %}
+                        {% endforeach %}
+                    </ul>
+                </li>
             </ul>
-        </li>
+        </div>
     {% endforeach %}
-</ul>
+</div>
