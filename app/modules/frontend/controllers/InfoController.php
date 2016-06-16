@@ -78,6 +78,15 @@ class InfoController extends Controller
         $this->tag->setTitle(_t('License'));
         $this->siteDesc = _t('License');
     }
+    
+    /**
+     * Display changelog
+     */
+    public function changelogAction()
+    {
+        $this->tag->setTitle(_t('CHANGELOG'));
+        $this->siteDesc = _t('Changelog');
+    }
 
     /**
      * Validate _POST and send email
