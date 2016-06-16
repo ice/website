@@ -80,7 +80,7 @@ class InfoController extends Controller
     }
     
     /**
-     * Display license
+     * Display changelog
      */
     public function changelogAction()
     {
