@@ -218,7 +218,7 @@ return new \Ice\Mvc\App($di);
 
 As you can see, the bootstrap file is very short and we do not need to include any additional files. We have set ourselves a flexible MVC application in about 50 lines of code.
 
-*Since Ice 1.1.0 services are predefined, so bootstrap file can be simpler:
+*Since Ice 1.1.0 services are predefined, so bootstrap file can be simpler (10 lines of code!):
 ```php
 namespace App;
 
@@ -233,13 +233,6 @@ $di->loader
 // Set some service's settings
 $di->dispatcher
     ->setNamespace(__NAMESPACE__);
-
-$di->router
-    ->setRoutes([
-        [['GET', 'POST'], '/{controller:[a-z]+}/{action:[a-z]+[/]?}'],
-        ['GET', '/{controller:[a-z]+[/]?}'],
-        ['GET', ''],
-    ]);
 
 $di->view
     ->setViewsDir(__DIR__ . '/View/');

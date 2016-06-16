@@ -18,7 +18,7 @@
                     </ul>
                 </li>
                 <li class="hidden-sm hidden-md">{{ link_to(['https://github.com/ice/framework', _t('GitHub'), 'local': false, 'target': '_blank']) }}</li>
-                <li><iframe src="http://ghbtns.com/github-btn.html?user=ice&repo=framework&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30" style="margin: 10px 10px 5px"></iframe></li>
+                <li><iframe src="https://ghbtns.com/github-btn.html?user=ice&repo=framework&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30" style="margin: 10px 10px 5px"></iframe></li>
             </ul>
         </div>
     </div>
