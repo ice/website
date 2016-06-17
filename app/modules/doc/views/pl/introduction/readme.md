@@ -77,10 +77,6 @@ composer update
 mkdir vendor/phalcon/ && cd $_
 git clone https://github.com/phalcon/zephir.git
 
-# Skompiluj json-c:
-cd zephir/
-./install-json
-
 # Zainstaluj zephir
 ./install
 
@@ -106,7 +102,6 @@ Możesz budować z C-plików lub zbudować przez zephir
 * nagłówki i narzędzia deweloperskie php
 
 ##### Aby skompilować zephir-parser
-* json-c (z GitHub)
 * re2c
 
 Ubuntu:
@@ -131,4 +126,4 @@ Windows
 Ice jest otwartym oprogramowaniem na nowej licencji BSD. Zobacz plik [LICENSE](http://www.iceframework.org/license), aby uzyskać więcej informacji.
 
 ***
-Prawa autorskie (c) 2014-2015 Zespół Ice.
+Prawa autorskie (c) 2014-2016 Zespół Ice.
