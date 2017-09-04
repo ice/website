@@ -1,0 +1,31 @@
+<header class="navbar navbar-expand-md navbar-light fixed-top">
+    <div class="container">
+        {{ link_to([null, image(['img/logo.png', this.config.app.name, 'width': 30, 'height': 30, 'class': 'd-inline-block align-top'])  ~ ' ' ~ this.config.app.name, this.config.app.name, 'class': 'navbar-brand']) }}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">{{ link_to(['doc', '<span class="d-md-none d-lg-block">' ~ _t('documentation') ~ '</span><span class="d-none d-md-block d-lg-none">' ~ _t('Doc') ~ '</span>', 'class': 'nav-link']) }}</li>
+                <li class="nav-item">{{ link_to(['https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5MWRA6KJKZ8A6&os0=small', _t('subscribe'), 'class': 'nav-link',  'local': false, 'target' => '_blank']) }}</li>
+                <li class="nav-item dropdown">
+                    {{ link_to([ '#', 'class': 'nav-link dropdown-toggle', 'data-toggle': 'dropdown', _t('language')]) }}
+                    <ul class="dropdown-menu">
+                        {% foreach this.config.i18n.langs as lang: language %}
+                            <li>{{ link_to(['lang/set/' ~ lang, _t(language), 'class': 'dropdown-item']) }}</li>
+                        {% endforeach %}
+                    </ul>
+                </li>
+                <li class="nav-item form-inline">{{ link_to(['info/download', _t('download'), 'class': 'btn btn-sm btn-outline-info align-middle']) }}</li>
+                <li class="nav-item form-inline"><iframe src="https://ghbtns.com/github-btn.html?user=ice&repo=framework&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30" class="align-middle ml-2 d-none d-xl-inline"></iframe></li>
+            </ul>
+            <ul class="navbar-nav ml-md-auto float-md-right">
+                <li class="nav-item">{{ link_to(['info/contact', '<i class="icon-envelope text-success"></i> <span class="d-md-none">' ~ _t('contact') ~ '</span>', 'Email: info iceframework org', 'class': 'nav-link text-success']) }}</li>
+                <li class="nav-item">{{ link_to(['https://twitter.com/iceframework', '<i class="icon-social-twitter text-info"></i> <span class="d-md-none">' ~ _t('Twitter') ~ '</span>', 'Twitter: iceframework', 'local': false, 'class': 'nav-link text-info', 'rel': 'nofollow', 'target': '_blank']) }}</li>
+                <li class="nav-item">{{ link_to(['http://webchat.freenode.net/?channels=iceframework', '<i class="icon-bubbles text-warning"></i> <span class="d-md-none">' ~ _t('Chat') ~ '</span>', 'FreeNode: #iceframework', 'local': false, 'class': 'nav-link text-warning', 'rel': 'nofollow', 'target': '_blank']) }}</li>
+                <li class="nav-item">{{ link_to(['https://packagist.org/packages/iceframework', '<i class="icon-bag"></i> <span class="d-md-none">' ~ _t('Packagist') ~ '</span>', 'Packagist: iceframework', 'local': false, 'class': 'nav-link text-danger', 'rel': 'nofollow', 'target': '_blank']) }}</li>
+                <li class="nav-item">{{ link_to(['https://github.com/ice', '<i class="icon-social-github"></i> <span class="d-md-none">' ~ _t('GitHub') ~ '</span>', 'GitHub: ice', 'local': false, 'class': 'nav-link text-muted', 'rel': 'nofollow', 'target': '_blank']) }}</li>
+            </ul>
+        </div>
+    </div>
+</header>

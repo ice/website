@@ -1,0 +1,23 @@
+{{ get_doc_type() }}
+<html lang="{{ this.i18n.iso() }}">
+    <head>
+        {% foreach get_meta() as meta %}
+            {{ meta }}
+        {% endforeach %}
+        <title>{{ get_title() }}</title>
+        {% foreach this.assets.getCss() as style %}
+            {{ style }}
+        {% endforeach %}
+        {{ link(['favicon.ico', "type": "image/x-icon", "rel": "icon"]) }}
+    </head>
+    <body>
+        {{ partial('header') }}
+        <main>
+            {{ content() }}
+        </main>
+        {{ partial('footer') }}
+        {% foreach this.assets.getJs() as script %}
+            {{ script }}
+        {% endforeach %}
+    </body>
+</html>

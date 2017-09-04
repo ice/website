@@ -1,0 +1,13 @@
+<footer>
+    <div class="container">
+        <p class="text-muted m-0">
+            {{ link_to([null, this.config.app.name, 'class': 'text-dark']) }} &copy; {{ date('Y') }}
+            <span class="d-none d-sm-inline mx-2">|</span>
+            <span class="d-none d-lg-inline text-muted mr-3">Ice {{ version() }}</span>
+            {{ link_to(['info/contact', _t('contact'), 'class': 'd-none d-sm-inline text-muted mr-3']) }}
+            {{ link_to(['license', _t('license'), 'class': 'd-none d-md-inline text-muted mr-3']) }}
+            {{ link_to(['changelog', _t('changelog'), 'class': 'd-none d-lg-inline text-muted mr-3']) }}
+            {{ link_to(['doc', _t('documentation'), 'class': 'd-none d-lg-inline text-muted mr-3']) }}
+        </p>
+    </div>
+</footer>
