@@ -1,0 +1,29 @@
+{{ get_doc_type() }}
+<html lang="{{ this.i18n.iso() }}">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ code|isset ? _t('status :code', [':code' : code]) : _t('somethingIsWrong') ~ ' | ' ~ this.config.app.name }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% if isset(assets['styles']) %}
+            {% foreach assets['styles'] as style %}
+                {{ style }}
+            {% endforeach %}
+        {% endif %}
+        {{ link(['favicon.ico', "type": "image/x-icon", "rel": "icon"]) }}
+    </head>
+    <body class="text-center">
+        <main class="text-center">
+            <div class="container my-5">
+                {{ link_to([null, image(['img/logo.png', this.config.app.name])]) }}
+                <h1>{{ code|isset ? _t('status :code', [':code' : code]) : _t('somethingIsWrong') }}</h1>
+                <h2 class="text-muted"><span class="{{ icon|isset ? icon : 'icon-close' }}"></span></h2>
+                <h4 class="text-muted">{{ message|isset ? _t(message) : _t("dontWorry") }}</h4>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                {{ link_to([null, this.config.app.name, 'class': 'navbar-link']) }} &copy; {{ date('Y') }}
+            </div>
+        </footer>
+    </body>
+</html>

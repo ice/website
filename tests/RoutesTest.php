@@ -7,11 +7,25 @@ use Ice\Di;
 use Ice\Mvc\Router;
 use App\Routes;
 
+/**
+ * Routes test.
+ *
+ * @category Test
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
+ */
 class RoutesTest extends PHPUnit
 {
 
     /**
-     * Test route matching for universal routes and GET method
+     * Test route matching for universal routes and GET method.
+     *
+     * @param string $pattern  Route uri
+     * @param array  $expected Response from router
+     *
+     * @return void
      *
      * @dataProvider GETrouteProvider
      */
@@ -19,7 +33,7 @@ class RoutesTest extends PHPUnit
     {
         $di = new Di();
         $router = new Router();
-        $routes = require __DIR__ . '/../app/routes.php';
+        $routes = include __DIR__ . '/../App/Boot/routes.php';
         $router->setRoutes($routes);
         $router->setDefaultModule('frontend');
         $return = $router->handle('GET', $pattern);
@@ -27,14 +41,24 @@ class RoutesTest extends PHPUnit
         $this->assertEquals('GET', $router->getMethod());
 
         if (is_array($return)) {
-            $this->assertEquals($expected, [$router->getModule(), $router->getHandler(), $router->getAction(), $router->getParams()], $pattern);
+            $this->assertEquals($expected, [
+                $router->getModule(),
+                $router->getHandler(),
+                $router->getAction(),
+                $router->getParams()
+            ], $pattern);
         } else {
             $this->assertEquals($expected, null, "The route wasn't matched by any route");
         }
     }
 
     /**
-     * Test route matching for universal routes and POST method
+     * Test route matching for universal routes and POST method.
+     *
+     * @param string $pattern  Route uri
+     * @param array  $expected Response from router
+     *
+     * @return void
      *
      * @dataProvider POSTrouteProvider
      */
@@ -42,7 +66,7 @@ class RoutesTest extends PHPUnit
     {
         $di = new Di();
         $router = new Router();
-        $routes = require __DIR__ . '/../app/routes.php';
+        $routes = include __DIR__ . '/../App/Boot/routes.php';
         $router->setRoutes($routes);
         $router->setDefaultModule('frontend');
         $return = $router->handle('POST', $pattern);
@@ -50,14 +74,19 @@ class RoutesTest extends PHPUnit
         $this->assertEquals('POST', $router->getMethod());
 
         if (is_array($return)) {
-            $this->assertEquals($expected, [$router->getModule(), $router->getHandler(), $router->getAction(), $router->getParams()], $pattern);
+            $this->assertEquals($expected, [
+                $router->getModule(),
+                $router->getHandler(),
+                $router->getAction(),
+                $router->getParams()
+            ], $pattern);
         } else {
             $this->assertEquals($expected, null, "The route wasn't matched by any route");
         }
     }
 
     /**
-     * Routes provider for GET method
+     * Routes provider for GET method.
      * [pattern, expected route: [module, handler, action, [params]]]
      *
      * @return array
@@ -80,7 +109,7 @@ class RoutesTest extends PHPUnit
             ['/doc/index', ['doc', 'index', 'index', []]],
             ['/doc/index/index', ['doc', 'index', 'index', []]],
             ['/doc/index/test', ['doc', 'index', 'test', []]],
-            
+
             ['/doc/install', ['doc', 'install', 'index', []]],
             ['/doc/install/requirements', ['doc', 'install', 'requirements', []]],
             ['/doc/install/requirements/php', ['doc', 'install', 'requirements', ['param' => 'php']]],
@@ -88,7 +117,7 @@ class RoutesTest extends PHPUnit
     }
 
     /**
-     * Routes provider for POST method
+     * Routes provider for POST method.
      * [pattern, expected route: [module, handler, action, [params]]]
      *
      * @return array
@@ -99,5 +128,4 @@ class RoutesTest extends PHPUnit
             ['/info/contact', ['frontend', 'info', 'contact', []]],
         ];
     }
-
 }

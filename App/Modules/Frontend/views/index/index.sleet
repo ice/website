@@ -1,0 +1,123 @@
+<section class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mr-auto order-lg-2">
+                <h1>{{ _t(':ice: framework!', [':ice:': '<span class="text-muted">ice</span>']) }}</h1>
+                <p class="lead">
+                    {{ _t('home.ice.desc') }}
+                </p>
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <p class="mt-4">
+                    {{ link_to(['info/download', _t('download'), 'class': 'btn btn-lg btn-outline-info']) }}
+                    {{ link_to(['doc', _t('documentation'), 'class': 'btn btn-lg btn-outline-primary']) }}
+                    {{ link_to(['https://github.com/ice/framework', _t('GitHub'), 'class': 'btn btn-lg btn-outline-secondary', 'local': false]) }}
+                </p>
+            </div>
+            <div class="col-lg-5 ml-auto order-lg-1">
+                {{ image(['img/cubes.jpg', 'Cube', 'class': 'img-fluid']) }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-section-b">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 ml-auto">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">{{ _t('home.speed.title') }}</h2>
+                <p class="lead">{{ _t('home.speed.desc') }}</p>
+                <p class="lead">{{ _t('home.speed.desc2 :benchmark:', [':benchmark:': link_to(['doc/introduction/benchmark',  _t('PHP framework benchmark')])]) }}</p>
+            </div>
+            <div class="col-lg-5 mr-auto">
+                {{ image(['img/doc/benchmark.jpg?v=31032016', 'Benchmark', 'class': 'img-fluid img-thumbnail']) }}
+                {{ image(['img/doc/benchmark4.jpg?v=31032016', 'Benchmark 4', 'class': 'img-fluid img-thumbnail mt-1']) }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mr-auto order-lg-2">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">{{ _t('home.ext.title') }}</h2>
+                <p class="lead">{{ _t("home.ext.desc") }}
+                <p class="lead">{{ _t("home.ext.desc2 :zaphir: :api:", [':zephir:': link_to(['https://zephir-lang.com', 'Zephir', 'local': false, 'target': '_blank', 'rel': 'nofollow']), ':api:' => link_to(['https://doc.iceframework.org/latest', 'API', 'local': false])]) }}</p>
+            </div>
+            <div class="col-lg-5 ml-auto order-lg-1">
+                {{ image(['img/iceberg.png', 'Iceberg', 'class': 'img-fluid']) }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-section-b">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 ml-auto">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">{{ _t('home.sleet.title') }}</h2>
+                <p class="lead">{{ _t('home.sleet.desc :atom:', [':atom:': link_to(['https://atom.io', _t('Atom editor'), 'local': false, 'target': '_blank'])]) }}</p>
+                <p>{{ _t('downloadPackage') }}: {{ link_to(['https://atom.io/packages/language-sleet', 'language-sleet', 'class': 'btn btn-sm btn-outline-secondary', 'local': false, 'target': '_blank']) }}</p>
+            </div>
+            <div class="col-lg-5 mr-auto">
+                {{ image(['https://raw.github.com/ice/language-sleet/master/screenshot.png', 'Sleet', 'class': 'img-fluid img-thumbnail', 'local': false]) }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mr-auto order-lg-2">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">{{ _t('home.model.title') }}</h2>
+                <p class="lead">
+                    {{ _t('home.model.desc') }}
+                </p>
+            </div>
+            <div class="col-lg-5 ml-auto order-lg-1">
+                {{ load('example/model') }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-section-b">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 ml-auto">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">{{ _t('home.auth.title') }}</h2>
+                <p class="lead">{{ _t('home.auth.desc') }}</p>
+            </div>
+            <div class="col-lg-5 mr-auto">
+                {{ load('example/auth') }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mr-auto order-lg-2">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">{{ _t('home.valid.title') }}</h2>
+                <p class="lead">
+                    {{ _t('home.valid.desc') }}
+                </p>
+                <p class="lead">
+                    {{ _t('home.valid.desc2 :examples:', [':examples:': link_to(['doc/component/validation',  _t('Validation examples')])]) }}
+                </p>
+            </div>
+            <div class="col-lg-5 ml-auto order-lg-1">
+                {{ load('example/validation') }}
+            </div>
+        </div>
+    </div>
+</section>

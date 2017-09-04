@@ -1,0 +1,50 @@
+{% use App\Libraries\Tool %}
+<div class="container mt-4">
+    <h2>{{ _t('download') }}</h2>
+    <hr />
+    <p>{{ _t('download.info') }} </p>
+    <ul>
+        <li>{{ link_to(['doc/introduction/readme', _t('compilation')]) }}</li>
+        <li>{{ link_to(['doc/introduction/windows', _t('compilationWindows')]) }}</li>
+    </ul>
+    <br />
+    <h3>{{ _t('stage') }}</h3>
+    <hr />
+    <p>{{ link_to(['https://travis-ci.org/ice/framework', image(['https://travis-ci.org/ice/framework.svg?branch=dev', 'Build Status', 'local': false]), 'local': false]) }} {{ link_to(['https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383', image(['https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383/badge.svg?style=flat', 'Dependency Status', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/stable.svg', 'Latest Stable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/downloads.svg', 'Total Downloads', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/unstable.svg', 'Latest Unstable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/license.svg', 'License', 'local': false]), 'local': false]) }}</p>
+    <br />
+    <h3 id="packages">{{ _t('packages') }}</h3>
+    <hr />
+    <h5 id="opensuse">{{ _t('openSUSE')}}</h5>
+    <ul>
+        <li>{{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
+        <li>{{ link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank']) }}</li>
+    </ul>
+    <h5 id="windows">{{ _t('Windows')}}</h5>
+    <div class="row">
+        {% foreach windows as php : versions %}
+            <div class="col-sm-6">
+                <ul>
+                    <li><strong>PHP {{ php }}</strong>
+                        {% set i = 0 %}
+                        <ul>
+                            {% foreach versions as version : files %}
+                                <li><strong class="{{ i ? 'text-muted' : 'text-info' }}">Ice {{ version }}</strong>
+                                    <ul>
+                                        {% foreach files as file %}
+                                        <li class="small">
+                                            {{ link_to(['dll/' ~ file['name'] ~ '.zip', file['name'], 'class': 'btn btn-' ~ (i ? 'outline-secondary' : 'outline-info') ~ ' btn-sm']) }}<br />
+                                            <span>{{ _t('<b>%s</b> release <b>x%d</b>', [file['release'], file['arch']]) }}</span><br />
+                                            {{ Tool::fileSize(root ~ '/public/dll/' ~ file['name'] ~ '.zip') }}, {{ date('Y-m-d H:i:s', filectime(root ~ '/public/dll/' ~ file['name'] ~ '.zip')) }}<br />
+                                            <span class="text-muted " title="md5 sum">{{ md5_file(root ~ '/public/dll/' ~ file['name'] ~ '.zip') }}</span>
+                                        {% endforeach %}
+                                    </ul>
+                                </li>
+                                {% var i++ %}
+                            {% endforeach %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        {% endforeach %}
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="container py-4">
+    <h1>{{ title }}</h1><hr />
+    <p>{{ subtitle|isset ? subtitle : ''}}</p>
+    {{ content }}
+</div>
