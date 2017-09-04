@@ -19,7 +19,7 @@ class RoutesTest extends PHPUnit
     {
         $di = new Di();
         $router = new Router();
-        $routes = require __DIR__ . '/../app/routes.php';
+        $routes = require __DIR__ . '/../App/Boot/routes.php';
         $router->setRoutes($routes);
         $router->setDefaultModule('frontend');
         $return = $router->handle('GET', $pattern);
@@ -42,7 +42,7 @@ class RoutesTest extends PHPUnit
     {
         $di = new Di();
         $router = new Router();
-        $routes = require __DIR__ . '/../app/routes.php';
+        $routes = require __DIR__ . '/../App/Boot/routes.php';
         $router->setRoutes($routes);
         $router->setDefaultModule('frontend');
         $return = $router->handle('POST', $pattern);
@@ -80,7 +80,7 @@ class RoutesTest extends PHPUnit
             ['/doc/index', ['doc', 'index', 'index', []]],
             ['/doc/index/index', ['doc', 'index', 'index', []]],
             ['/doc/index/test', ['doc', 'index', 'test', []]],
-            
+
             ['/doc/install', ['doc', 'install', 'index', []]],
             ['/doc/install/requirements', ['doc', 'install', 'requirements', []]],
             ['/doc/install/requirements/php', ['doc', 'install', 'requirements', ['param' => 'php']]],
