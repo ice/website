@@ -9,11 +9,14 @@ use Ice\Mvc\View\Engine\Sleet\Compiler;
 use PHPMailer;
 
 /**
- * Email Library
+ * Email Library.
  *
- * @package     Ice/Website
- * @category    Library
- * @uses        PHPMailer
+ * @category Library
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
+ * @uses     PHPMailer
  */
 class Email extends PHPMailer
 {
@@ -38,10 +41,11 @@ class Email extends PHPMailer
     }
 
     /**
-     * Get email template and load view with params
+     * Get email template and load view with params.
      *
-     * @param string $name View name to load
-     * @param array $params Params to send to the view
+     * @param string $name   View name to load
+     * @param array  $params Params to send to the view
+     *
      * @return string
      */
     public function getTemplate($name, $params = [])
@@ -70,12 +74,13 @@ class Email extends PHPMailer
     }
 
     /**
-     * Prepare email - set title, recipment and body
+     * Prepare email - set title, recipment and body.
      *
      * @param string $subject Email subject
-     * @param string $to Email recipment
-     * @param string $view Vview name to load
-     * @param array $params Params to send to the view
+     * @param string $to      Email recipment
+     * @param string $view    Vview name to load
+     * @param array  $params  Params to send to the view
+     *
      * @return string
      */
     public function prepare($subject, $to, $view, $params = [])

@@ -5,14 +5,22 @@ namespace App\Modules\Doc\Controllers;
 use App\Extensions\Controller;
 
 /**
- * Documentation home controller
+ * Documentation home controller.
  *
- * @package     Ice/Website
- * @category    Controller
+ * @category Controller
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class IndexController extends Controller
 {
 
+    /**
+     * Before execute an action.
+     *
+     * @return void
+     */
     public function before()
     {
         parent::before();
@@ -29,7 +37,9 @@ JS
     }
 
     /**
-     * Display doc home page
+     * Display home page.
+     *
+     * @return void
      */
     public function indexAction()
     {

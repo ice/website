@@ -5,16 +5,19 @@ namespace App\Extensions;
 use Ice\Tag;
 
 /**
- * Base controller
+ * Base controller.
  *
- * @package     Ice/Website
- * @category    Controller
+ * @category Extension
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class Controller extends \Ice\Mvc\Controller
 {
 
     /**
-     * Before execute action
+     * Before execute action.
      *
      * @return void
      */
@@ -146,6 +149,8 @@ JS
 
     /**
      * Get Markdown file.
+     *
+     * @param string $path Url to the file
      *
      * @return string
      */

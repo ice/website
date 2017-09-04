@@ -9,11 +9,14 @@ use Ice\Mvc\View\Engine\EngineInterface;
 use ParsedownExtra;
 
 /**
- * Markdown template engine
+ * Markdown template engine.
  *
- * @package     Ice/Website
- * @category    Extension
- * @uses        ParsedownExtra
+ * @category Library
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
+ * @uses     ParsedownExtra
  */
 class Markdown extends Engine implements EngineInterface
 {
@@ -21,10 +24,10 @@ class Markdown extends Engine implements EngineInterface
     private $parser;
 
     /**
-     * Engine constructor
+     * Engine constructor.
      *
-     * @param ViewInterface $view
-     * @param Di $di
+     * @param object $view ViewInterface
+     * @param object $di   Di
      */
     public function __construct(ViewInterface $view, Di $di = null)
     {
@@ -34,10 +37,11 @@ class Markdown extends Engine implements EngineInterface
     }
 
     /**
-     * Renders a view using the template engine
+     * Renders a view using the template engine.
      *
-     * @param string  $path
-     * @param array   $data
+     * @param string $path Path to the file
+     * @param array  $data Data to send
+     *
      * @return string
      */
     public function render($path, array $data = null)

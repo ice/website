@@ -2,7 +2,7 @@
 
 namespace App\Modules\Frontend\Controllers;
 
-use App\Error;
+use App\Boot\Error;
 use App\Extensions\Controller;
 use App\Extensions\RecursiveSortedIterator;
 use App\Libraries\Email;
@@ -11,16 +11,21 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
 /**
- * Frontend info controller
+ * Frontend info controller.
  *
- * @package     Ice/Website
- * @category    Controller
+ * @category Controller
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class InfoController extends Controller
 {
 
     /**
-     * How to download
+     * How to download page.
+     *
+     * @return void
      */
     public function downloadAction()
     {
@@ -38,7 +43,8 @@ class InfoController extends Controller
                     '/(ice-(\d+\.\d+\.\d+)-php-(\d+\.\d+)-(\w+)-vc\d+-x(\d+))\.zip/i',
                     $item->getFilename(),
                     $matches
-                )) {
+                )
+                ) {
                     $file = $matches[1];
                     $version = $matches[2];
                     $php = $matches[3];
@@ -61,7 +67,9 @@ class InfoController extends Controller
     }
 
     /**
-     * Display contact form
+     * Display contact form.
+     *
+     * @return void
      */
     public function contactAction()
     {
@@ -70,7 +78,9 @@ class InfoController extends Controller
     }
 
     /**
-     * Display license
+     * Display license page.
+     *
+     * @return void
      */
     public function licenseAction()
     {
@@ -85,7 +95,9 @@ class InfoController extends Controller
     }
 
     /**
-     * Display changelog
+     * Display changelog page.
+     *
+     * @return void
      */
     public function changelogAction()
     {
@@ -104,6 +116,7 @@ class InfoController extends Controller
      * Validate _POST and send email
      *
      * @throws Error
+     * @return void
      */
     public function postContactAction()
     {

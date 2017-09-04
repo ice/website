@@ -14,7 +14,7 @@ before_script:
   - phpenv rehash
 
 script:
-  - php vendor/bin/phpcs --encoding=utf-8 --ignore=i18n App/
+  - php vendor/bin/phpcs --encoding=utf-8 --ignore=i18n .
   - php vendor/bin/phpunit --configuration tests/phpunit.xml --testsuite=all
 
 after_failure:

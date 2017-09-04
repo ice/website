@@ -9,20 +9,23 @@ use Ice\Log\Driver\File as Logger;
 use App\Libraries\Email;
 
 /**
- * Handle exception, do something with it depending on the environment
+ * Handle exception, do something with it depending on the environment.
  *
- * @package     Ice/Website
- * @category    Errors
+ * @category Boot
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class Error extends Exception
 {
 
     /**
-     * Error constructor
+     * Error constructor.
      *
-     * @param string $message
-     * @param int $code
-     * @param mixed $previous
+     * @param string $message  Error message
+     * @param int    $code     Errror code
+     * @param mixed  $previous Previous error
      */
     public function __construct($message, $code = 0, $previous = null)
     {

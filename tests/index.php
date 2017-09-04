@@ -1,8 +1,6 @@
 <?php
 
-if (!defined('__ROOT__')) {
-    define('__ROOT__', dirname(__DIR__));
-}
+require_once __DIR__ . '/../root.php';
 
 (new Ice\Loader())
     ->addNamespace('App', __ROOT__ . '/App')

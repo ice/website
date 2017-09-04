@@ -15,10 +15,13 @@ use Ice\Mvc\View;
 use Ice\Mvc\View\Engine\Sleet;
 
 /**
- * Ice framework website
+ * Ice framework website.
  *
- * @package     Ice/Website
- * @category    Bootstrap
+ * @category Boot
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class Website extends App
 {
@@ -37,7 +40,7 @@ class Website extends App
     public $keywords;
 
     /**
-     * Initialize the application
+     * Initialize the application.
      *
      * @return object App
      */
@@ -76,7 +79,7 @@ class Website extends App
             return $dispatcher;
         });
 
-        $routes = require_once __DIR__ . '/routes.php';
+        $routes = include_once __DIR__ . '/routes.php';
 
         // Set the router service
         $this->di->set('router', function () use ($routes, $config) {

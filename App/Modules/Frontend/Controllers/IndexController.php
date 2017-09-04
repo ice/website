@@ -5,16 +5,21 @@ namespace App\Modules\Frontend\Controllers;
 use App\Extensions\Controller;
 
 /**
- * Frontend home controller
+ * Frontend home controller.
  *
- * @package     Ice/Website
- * @category    Controller
+ * @category Controller
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class IndexController extends Controller
 {
 
     /**
-     * Display home page
+     * Display home page.
+     *
+     * @return void
      */
     public function indexAction()
     {

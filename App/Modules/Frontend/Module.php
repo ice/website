@@ -34,6 +34,7 @@ class Module implements ModuleInterface
      * Register specific services for the module
      *
      * @param object $di Dependency injector
+     *
      * @return void
      */
     public function registerServices(Di $di)

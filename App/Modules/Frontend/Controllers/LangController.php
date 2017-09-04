@@ -7,14 +7,19 @@ use App\Extensions\Controller;
 /**
  * Frontend language controller
  *
- * @package     Ice/Website
- * @category    Controller
+ * @category Controller
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class LangController extends Controller
 {
 
     /**
-     * Set a language
+     * Set a language.
+     *
+     * @return void
      */
     public function setAction()
     {

@@ -3,16 +3,24 @@
 namespace App\Libraries;
 
 /**
- * Tool Library
+ * Tools.
  *
- * @package     Ice/Website
- * @category    Library
+ * @category Library
+ * @package  Website
+ * @author   Ice <info@iceframework.org>
+ * @license  iceframework.org Ice
+ * @link     iceframework.org
  */
 class Tool
 {
-    
+
     /**
      * Get the human file size
+     *
+     * @param string $file  Path to the file
+     * @param string $setup Setup
+     *
+     * @return string
      */
     public static function fileSize($file, $setup = null)
     {
