@@ -33,7 +33,7 @@ class RoutesTest extends PHPUnit
     {
         $di = new Di();
         $router = new Router();
-        $routes = include_once __DIR__ . '/../App/Boot/routes.php';
+        $routes = include __DIR__ . '/../App/Boot/routes.php';
         $router->setRoutes($routes);
         $router->setDefaultModule('frontend');
         $return = $router->handle('GET', $pattern);
@@ -66,7 +66,7 @@ class RoutesTest extends PHPUnit
     {
         $di = new Di();
         $router = new Router();
-        $routes = include_once __DIR__ . '/../App/Boot/routes.php';
+        $routes = include __DIR__ . '/../App/Boot/routes.php';
         $router->setRoutes($routes);
         $router->setDefaultModule('frontend');
         $return = $router->handle('POST', $pattern);
