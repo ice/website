@@ -4,12 +4,9 @@ namespace App\Boot;
 
 use Ice\Config\Ini;
 use Ice\I18n;
-use Ice\Crypt;
-use Ice\Cookies;
 use Ice\Mvc\Url;
 use Ice\Mvc\Router;
 use Ice\Mvc\Dispatcher;
-use Ice\Tag;
 use Ice\Mvc\App;
 use Ice\Mvc\View;
 use Ice\Mvc\View\Engine\Sleet;
