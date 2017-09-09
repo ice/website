@@ -5,7 +5,8 @@ namespace App\Boot;
 use Ice\Di;
 use Ice\Dump;
 use Ice\Exception;
-use Ice\Log\Driver\File as Logger;
+use Ice\Tag;
+use Ice\Log\Driver\File;
 use App\Libraries\Email;
 
 /**
@@ -56,33 +57,21 @@ class Error extends Exception
                 echo $dump->vars($error, $info, $debug);
             }
         } else {
-            // Load and display error view
             if (PHP_SAPI == 'cli') {
-                echo _t('somethingIsWrong');
+                echo $message;
             } else {
-                // Load and display error view
-                $view = $di->view;
-
                 if ($err->hide) {
-                    unset($message, $code);
-                } else {
-                    $view->setVar('message', $error);
+                    $message = _t('somethingIsWrong');
                 }
 
-                $assets['styles'] = [
-                    $di->tag->link(['css/bootstrap.min.css?v=4.0.0bata1']),
-                    $di->tag->link(['css/fonts.css']),
-                    $di->tag->link(['css/frontend.css']),
-                    $di->tag->link(['css/simple-line-icons.css'])
-                ];
-
-                echo $view->layout('error', $assets);
+                // Load and display error view
+                echo self::view($di, $code, $message);
             }
         }
 
         if ($err->log) {
             // Log error into the file
-            $logger = new Logger(__ROOT__ . '/App/log/' . date('Ymd') . '.log');
+            $logger = new File(__ROOT__ . '/App/log/' . date('Ymd') . '.log');
             $logger->error($error);
             $logger->info($info);
             $logger->debug($debug);
@@ -92,13 +81,80 @@ class Error extends Exception
             // Send email to admin
             $log = $dump->vars($error, $info, $debug);
 
+            if ($di->has("request")) {
+                $log .= $dump->one($di->request->getData(), '_REQUEST');
+                $log .= $dump->one($di->request->getServer()->getData(), '_SERVER');
+                $log .= $dump->one($di->request->getPost()->getData(), '_POST');
+                $log .= $dump->one($di->request->getQuery()->getData(), '_GET');
+            }
+
             $email = new Email();
             $email->prepare(_t('somethingIsWrong'), $di->config->app->admin, 'email/error', ['log' => $log]);
 
             if ($email->Send() !== true) {
-                $logger = new Logger(__ROOT__ . '/App/log/' . date('Ymd') . '.log');
+                $logger = new File(__ROOT__ . '/App/log/' . date('Ymd') . '.log');
                 $logger->error($email->ErrorInfo);
             }
         }
+
+        exit(1);
+    }
+
+    /**
+     * Get the error view.
+     *
+     * @param object  $di      Di object
+     * @param integer $code    Error code
+     * @param string  $message Error message
+     *
+     * @return string
+     */
+    public static function view($di, $code, $message)
+    {
+        $di->tag->setDocType(Tag::XHTML5);
+        $di->tag->setTitle(_t('status :code', [':code' => $code]));
+        $di->tag->appendTitle($di->config->app->name, ' | ');
+
+        // Clear meta tags and assets
+        $di->tag->setMeta([]);
+        $di->assets->setCollections([]);
+
+        // Add meta tags
+        $di->tag
+            ->addMeta(['charset' => 'utf-8'])
+            ->addMeta(['width=device-width, initial-scale=1, shrink-to-fit=no', 'viewport'])
+            ->addMeta(['noindex, nofollow', 'robots']);
+
+        // Add styles to assets
+        $di->assets
+            ->add('css/bootstrap.min.css', $di->config->assets->bootstrap)
+            ->add('css/fonts.css', $di->config->assets->fonts)
+            ->add('css/simple-line-icons.css', $di->config->assets->simplelineicons)
+            ->add('css/frontend.css', $di->config->assets->frontend);
+
+        // Restore default view settings
+        $di->view->setViewsDir(__ROOT__ . '/App/views/');
+        $di->view->setPartialsDir('partials/');
+        $di->view->setLayoutsDir('layouts/');
+        $di->view->setFile('partials/status');
+
+        if ($di->response->isServerError()) {
+            $icon = 'icon-close text-danger';
+        } elseif ($di->response->isClientError()) {
+            $icon = 'icon-exclamation text-info';
+        } elseif ($di->response->isRedirection()) {
+            $icon = 'icon-reload text-warning';
+        } else {
+            $icon = 'icon-question';
+        }
+
+        $di->view->setVars([
+            'icon' => $icon,
+            'title' => _t('status :code', [':code' => $code]),
+            'content' => $message,
+        ]);
+        $di->view->setContent($di->view->render());
+
+        return $di->view->layout('error');
     }
 }

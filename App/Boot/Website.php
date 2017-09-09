@@ -51,6 +51,7 @@ class Website extends App
 
         // Set environment settings
         $config->set('env', (new Ini(__ROOT__ . '/App/cfg/env.ini'))->{$config->app->env});
+        $config->set('assets', new Ini(__ROOT__ . '/App/cfg/assets.ini'));
 
         // Register modules
         $this->setModules([

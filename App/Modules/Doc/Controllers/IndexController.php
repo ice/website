@@ -26,8 +26,8 @@ class IndexController extends Controller
         parent::before();
 
         $this->assets
-            ->add('css/highlight/tomorrow.min.css', '9.12.0')
-            ->add('js/plugins/highlight.min.js', '9.12.0')
+            ->add('css/highlight/tomorrow.min.css', $this->config->assets->highlight)
+            ->add('js/plugins/highlight.min.js', $this->config->assets->highlight)
             ->addJs(['content' => <<<JS
                 $(document).ready(function() {
                     $("pre code").each(function(i, e) {hljs.highlightBlock(e)});
