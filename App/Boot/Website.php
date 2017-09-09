@@ -43,6 +43,9 @@ class Website extends App
      */
     public function initialize()
     {
+        // Handle the errors by Error class
+        $this->di->errors('App\Boot\Error');
+
         // Load the config
         $config = new Ini(__ROOT__ . '/App/cfg/config.ini');
 

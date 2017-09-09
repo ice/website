@@ -99,7 +99,6 @@ class RoutesTest extends PHPUnit
             ['/index/index', ['frontend', 'index', 'index', []]],
             ['/index/test', ['frontend', 'index', 'test', []]],
             ['/info', ['frontend', 'info', 'index', []]],
-            ['/info/', ['frontend', 'info', 'index', []]],
             ['/info/download', ['frontend', 'info', 'download', []]],
             ['/info/contact', ['frontend', 'info', 'contact', []]],
 
