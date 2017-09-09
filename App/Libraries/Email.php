@@ -33,7 +33,13 @@ class Email extends PHPMailer
         // Load email config from config.ini
         if ($config = Di::fetch()->config->email) {
             foreach ($config as $key => $value) {
-                $this->$key = $value;
+                if ($key == 'ssl' && $value instanceof Config) {
+                    $this->SMTPOptions = [
+                        'ssl' => $value->toArray()
+                    ];
+                } else {
+                    $this->$key = $value;
+                }
             }
         }
 

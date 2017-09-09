@@ -1,4 +1,0 @@
-<div class="container mt-4">
-    <h1>{{ _t('License') }}</h1><hr />
-    {{ content }}
-</div>
