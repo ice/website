@@ -9,9 +9,9 @@
                 <hr class="section-heading-spacer">
                 <div class="clearfix"></div>
                 <p class="mt-4">
-                    {{ link_to(['info/download', _t('download'), 'class': 'btn btn-lg btn-outline-info']) }}
-                    {{ link_to(['doc', _t('documentation'), 'class': 'btn btn-lg btn-outline-primary']) }}
-                    {{ link_to(['https://github.com/ice/framework', _t('GitHub'), 'class': 'btn btn-lg btn-outline-secondary', 'local': false]) }}
+                    {{ link_to(['info/download', _t('download'), 'class': 'btn btn-lg btn-outline-info m-1']) }}
+                    {{ link_to(['doc', _t('documentation'), 'class': 'btn btn-lg btn-outline-primary m-1']) }}
+                    {{ link_to(['https://github.com/ice/framework', _t('GitHub'), 'class': 'btn btn-lg btn-outline-secondary m-1', 'local': false]) }}
                 </p>
             </div>
             <div class="col-lg-5 ml-auto order-lg-1">

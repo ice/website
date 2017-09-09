@@ -33,16 +33,16 @@ class Controller extends \Ice\Mvc\Controller
 
         $this->assets
             // Add styles to assets
-            ->add('css/bootstrap.min.css', '4.0.0beta1')
-            ->add('css/fonts.css', '1.0.0')
-            ->add('css/simple-line-icons.css', '2.2.2')
-            ->add('css/frontend.css', '1.0.0')
+            ->add('css/bootstrap.min.css', $this->config->assets->bootstrap)
+            ->add('css/fonts.css', $this->config->assets->fonts)
+            ->add('css/simple-line-icons.css', $this->config->assets->simplelineicons)
+            ->add('css/frontend.css', $this->config->assets->frontend)
 
             // Add scripts to assets
-            ->add('js/jquery.min.js', '3.2.1')
+            ->add('js/jquery.min.js', $this->config->assets->jquery)
             ->addJs(['//cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js', 'local' => false])
-            ->add('js/bootstrap.min.js', '4.0.0beta1')
-            ->add('js/frontend.js', '1.0.0');
+            ->add('js/bootstrap.min.js', $this->config->assets->bootstrap)
+            ->add('js/frontend.js', $this->config->assets->frontend);
     }
 
     /**

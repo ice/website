@@ -1,5 +1,5 @@
 {% use App\Libraries\Tool %}
-<div class="container mt-4">
+<div class="container py-4">
     <h2>{{ _t('download') }}</h2>
     <hr />
     <p>{{ _t('download.info') }} </p>

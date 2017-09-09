@@ -33,7 +33,13 @@ class Email extends PHPMailer
         // Load email config from config.ini
         if ($config = Di::fetch()->config->email) {
             foreach ($config as $key => $value) {
-                $this->$key = $value;
+                if ($key == 'ssl' && $value instanceof Config) {
+                    $this->SMTPOptions = [
+                        'ssl' => $value->toArray()
+                    ];
+                } else {
+                    $this->$key = $value;
+                }
             }
         }
 
@@ -52,13 +58,13 @@ class Email extends PHPMailer
     {
         // Prepare view service
         $view = new View();
-        $view->setViewsDir(__ROOT__ . '/app/common/views/');
+        $view->setViewsDir(__ROOT__ . '/App/views/');
         $view->setMainView('email');
 
         // Options for Sleet template engine
         $sleet = new Sleet($view, Di::fetch());
         $sleet->setOptions([
-            'compileDir' => __ROOT__ . '/app/common/tmp/sleet/',
+            'compileDir' => __ROOT__ . '/App/tmp/sleet/',
             'trimPath' => __ROOT__,
             'compile' => Compiler::IF_CHANGE
         ]);

@@ -14,7 +14,10 @@ error_reporting(E_ALL | E_STRICT);
 require_once __DIR__ . '/../root.php';
 require_once __DIR__ . '/../autoload.php';
 
+use App\Boot\Website;
+use Ice\Di;
+
 // Initialize website, handle a MVC request and display the HTTP response body
-echo (new App\Boot\Website((new Ice\Di())->errors('App\Boot\Error')))
+echo (new Website(new Di))
     ->initialize()
     ->handle();
