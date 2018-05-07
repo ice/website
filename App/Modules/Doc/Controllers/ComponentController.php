@@ -25,6 +25,16 @@ class ComponentController extends IndexController
     }
 
     /**
+     * Display model page.
+     *
+     * @return void
+     */
+    public function modelAction()
+    {
+        $this->tag->setTitle(_t('model'));
+    }
+
+    /**
      * Display pagination page.
      *
      * @return void
