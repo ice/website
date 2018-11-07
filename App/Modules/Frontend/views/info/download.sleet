@@ -10,14 +10,13 @@
     <br />
     <h3>{{ _t('stage') }}</h3>
     <hr />
-    <p>{{ link_to(['https://travis-ci.org/ice/framework', image(['https://travis-ci.org/ice/framework.svg?branch=dev', 'Build Status', 'local': false]), 'local': false]) }} {{ link_to(['https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383', image(['https://www.versioneye.com/user/projects/54d4f6963ca0840b19000383/badge.svg?style=flat', 'Dependency Status', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/stable.svg', 'Latest Stable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/downloads.svg', 'Total Downloads', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/unstable.svg', 'Latest Unstable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/license.svg', 'License', 'local': false]), 'local': false]) }}</p>
+    <p>{{ link_to(['https://travis-ci.org/ice/framework', image(['https://travis-ci.org/ice/framework.svg?branch=dev', 'Build Status', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/stable.svg', 'Latest Stable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/downloads.svg', 'Total Downloads', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/v/unstable.svg', 'Latest Unstable Version', 'local': false]), 'local': false]) }} {{ link_to(['https://packagist.org/packages/iceframework/framework', image(['https://poser.pugx.org/iceframework/framework/license.svg', 'License', 'local': false]), 'local': false]) }}</p>
     <br />
     <h3 id="packages">{{ _t('packages') }}</h3>
     <hr />
     <h5 id="opensuse">{{ _t('openSUSE')}}</h5>
     <ul>
         <li>{{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
-        <li>{{ link_to(['http://software.opensuse.org/package/php5-ice', 'php5-ice', 'local': false, 'target': '_blank']) }}</li>
     </ul>
     <h5 id="windows">{{ _t('Windows')}}</h5>
     <div class="row">
