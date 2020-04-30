@@ -28,11 +28,11 @@ class Tool
         $FS = ["B","kB","MB","GB","TB","PB","EB","ZB","YB"];
 
         if (!$setup && $setup !== 0) {
-            return number_format($FZ/pow(1024, $I = floor(log($FZ, 1024))), ($I >= 1) ? 2 : 0) . ' ' . $FS[$I];
+            return number_format($FZ / pow(1024, $I = floor(log($FZ, 1024))), ($I >= 1) ? 2 : 0) . ' ' . $FS[$I];
         } elseif ($setup == 'INT') {
             return number_format($FZ);
         } else {
-            return number_format($FZ/pow(1024, $setup), ($setup >= 1) ? 2 : 0). ' ' . $FS[$setup];
+            return number_format($FZ / pow(1024, $setup), ($setup >= 1) ? 2 : 0) . ' ' . $FS[$setup];
         }
     }
 }

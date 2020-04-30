@@ -9,6 +9,7 @@
  * In a production environment, it is safe to ignore notices and strict warnings.
  * Disable them by using: E_ALL ^ E_NOTICE
  */
+
 error_reporting(E_ALL | E_STRICT);
 
 require_once __DIR__ . '/../root.php';
@@ -18,6 +19,6 @@ use App\Boot\Website;
 use Ice\Di;
 
 // Initialize website, handle a MVC request and display the HTTP response body
-echo (new Website(new Di))
+echo (new Website(new Di()))
     ->initialize()
     ->handle();

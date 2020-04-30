@@ -6,7 +6,7 @@ use Ice\Di;
 use Ice\Mvc\View;
 use Ice\Mvc\View\Engine\Sleet;
 use Ice\Mvc\View\Engine\Sleet\Compiler;
-use PHPMailer;
+use PHPMailer\PHPMailer\PHPMailer;
 
 /**
  * Email Library.
@@ -28,7 +28,7 @@ class Email extends PHPMailer
      */
     public function __construct()
     {
-        $email = new \PHPMailer();
+        $email = new PHPMailer();
 
         // Load email config from config.ini
         if ($config = Di::fetch()->config->email) {
