@@ -10,11 +10,12 @@ before_script:
   - ./tests/install-extension.sh
   - composer update --dev
   - phpenv config-rm xdebug.ini
+  - composer update
   - phpenv rehash
 
 script:
-  - php vendor/bin/phpcs
-  - php vendor/bin/phpunit --testsuite=all
+  - php ./vendor/bin/phpcs
+  - php ./vendor/bin/phpunit --testsuite=all
 
 after_failure:
   - sudo apt-get -qq install gdb
