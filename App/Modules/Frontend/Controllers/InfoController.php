@@ -39,11 +39,12 @@ class InfoController extends Controller
 
         foreach ($sit as $item) {
             if (!$item->isDir() && $item->getExtension() == 'zip') {
-                if (preg_match(
-                    '/(ice-(\d+\.\d+\.\d+)-php-(\d+\.\d+)-(\w+)-vc\d+-x(\d+))\.zip/i',
-                    $item->getFilename(),
-                    $matches
-                )
+                if (
+                    preg_match(
+                        '/(ice-(\d+\.\d+\.\d+)-php-(\d+\.\d+)-(\w+)-vc\d+-x(\d+))\.zip/i',
+                        $item->getFilename(),
+                        $matches
+                    )
                 ) {
                     $file = $matches[1];
                     $version = $matches[2];
