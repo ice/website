@@ -4,7 +4,7 @@ namespace Tests;
 
 use PHPUnit_Framework_TestCase as PHPUnit;
 use Ice\Di;
-use Ice\Mvc\Router;
+use Ice\Mvc\FastRouter as Router;
 use App\Routes;
 
 /**
