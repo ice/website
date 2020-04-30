@@ -18,6 +18,10 @@
     <ul>
         <li>{{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
     </ul>
+    <h5 id="pecl">{{ _t('pecl')}}</h5>
+    <ul>
+        <li>{{ link_to(['https://pecl.php.net/package/ice', 'ice', 'local': false, 'target': '_blank']) }} <code>pecl install ice</code></li>
+    </ul>
     <h5 id="windows">{{ _t('Windows')}}</h5>
     <div class="row">
         {% foreach windows as php : versions %}
