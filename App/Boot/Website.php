@@ -5,7 +5,7 @@ namespace App\Boot;
 use Ice\Config\Ini;
 use Ice\I18n;
 use Ice\Mvc\Url;
-use Ice\Mvc\Router;
+use Ice\Mvc\FastRouter as Router;
 use Ice\Mvc\Dispatcher;
 use Ice\Mvc\App;
 use Ice\Mvc\View;
@@ -125,7 +125,7 @@ class Website extends App
      *
      * @return object response
      */
-    public function handle($method = null, $uri = null)
+    public function handle($method = null, $uri = null): \Ice\Http\Response\ResponseInterface
     {
         $di = $this->di;
 

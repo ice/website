@@ -23,7 +23,7 @@ class Module implements ModuleInterface
      *
      * @return void
      */
-    public function registerAutoloaders()
+    public function registerAutoloaders(Loader $loader = null)
     {
         (new Loader())
             ->addNamespace(__NAMESPACE__ . '\Controllers', __DIR__ . '/controllers/')
