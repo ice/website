@@ -1,4 +1,4 @@
-<div class="container py-4">
+<div class="container py-4" {% if id|isset %} id="{{ id }}"{% endif %}>
     <h1>{{ title }}</h1><hr />
     <p>{{ subtitle|isset ? subtitle : ''}}</p>
     {{ content }}

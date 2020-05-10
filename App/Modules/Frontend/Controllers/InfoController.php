@@ -108,9 +108,30 @@ class InfoController extends Controller
         $this->view->setVars([
             'title' => _t('changelog'),
             'subtitle' => _t('See the release notes.'),
+            'id' => 'changelog',
             'content' => $this->getMd('https://raw.githubusercontent.com/ice/framework/dev/CHANGELOG.md')
         ]);
         $this->view->setContent($this->view->partial('md'));
+
+        $this->assets
+            ->addJs(['content' => <<<JS
+                $(document).ready(function() {
+                    $("#changelog ul li ul li").each(function (i, e) {
+                        $(e).html(
+                            // Detect & replace github ref
+                            $(e).text().replace(/#(\d+)/, function (text, issue) {
+                                return $('<a>', {
+                                    href: "https://github.com/ice/framework/issues/" + issue,
+                                    text: text,
+                                    title: $(e).text(),
+                                    target: '_blank'
+                                }).prop('outerHTML');
+                            })
+                        );
+                    });
+                });
+JS
+            ], '1.0.0');
     }
 
     /**
