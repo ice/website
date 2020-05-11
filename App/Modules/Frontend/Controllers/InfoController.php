@@ -29,42 +29,8 @@ class InfoController extends Controller
      */
     public function downloadAction()
     {
-        $this->tag->setTitle(_t('Download'));
-
-        $dit = new RecursiveDirectoryIterator(__ROOT__ . '/public/dll/', RecursiveDirectoryIterator::SKIP_DOTS);
-        $rit = new RecursiveIteratorIterator($dit, RecursiveIteratorIterator::SELF_FIRST);
-        $sit = new RecursiveSortedIterator($rit);
-
-        $windows = [];
-
-        foreach ($sit as $item) {
-            if (!$item->isDir() && $item->getExtension() == 'zip') {
-                if (
-                    preg_match(
-                        '/(ice-(\d+\.\d+\.\d+)-php-(\d+\.\d+)-(\w+)-vc\d+-x(\d+))\.zip/i',
-                        $item->getFilename(),
-                        $matches
-                    )
-                ) {
-                    $file = $matches[1];
-                    $version = $matches[2];
-                    $php = $matches[3];
-                    $release = strtoupper($matches[4]);
-                    $arch = $matches[5];
-
-                    $windows[$php][$version][] = [
-                        'name' => $file,
-                        'release' => $release,
-                        'arch' => $arch,
-                    ];
-                }
-            }
-        }
-
-        $this->view->setVars([
-            'root' => __ROOT__,
-            'windows' => $windows
-        ]);
+        $this->tag->setTitle(_t('download'));
+        $this->app->description = _t('download.info');
     }
 
     /**

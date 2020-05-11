@@ -14,40 +14,16 @@
     <br />
     <h3 id="packages">{{ _t('packages') }}</h3>
     <hr />
-    <h5 id="opensuse">{{ _t('openSUSE')}}</h5>
+
     <ul>
-        <li>{{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
+        <li><span id="opensuse">{{ _t('openSUSE') }}:</span> {{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
+        <li><span id="windows">{{ _t('Windows') }}:</span> {{ link_to(['https://windows.php.net/downloads/pecl/releases/ice/', 'dll', 'local': false, 'target': '_blank']) }}</li>
     </ul>
-    <h5 id="pecl">{{ _t('pecl')}}</h5>
     <ul>
-        <li>{{ link_to(['https://pecl.php.net/package/ice', 'ice', 'local': false, 'target': '_blank']) }} <code>pecl install ice</code></li>
+        <li><abbr id="pecl" title="PHP Extension Community Library">{{ _t('pecl') }}:</abbr> {{ link_to(['https://pecl.php.net/package/ice', 'ice', 'local': false, 'target': '_blank']) }}
+            <ul>
+                <li><code>pecl install ice</code></li>
+            </ul>
+        </li>
     </ul>
-    <h5 id="windows">{{ _t('Windows')}}</h5>
-    <div class="row">
-        {% foreach windows as php : versions %}
-            <div class="col-sm-6">
-                <ul>
-                    <li><strong>PHP {{ php }}</strong>
-                        {% set i = 0 %}
-                        <ul>
-                            {% foreach versions as version : files %}
-                                <li><strong class="{{ i ? 'text-muted' : 'text-info' }}">Ice {{ version }}</strong>
-                                    <ul>
-                                        {% foreach files as file %}
-                                        <li class="small">
-                                            {{ link_to(['dll/' ~ file['name'] ~ '.zip', file['name'], 'class': 'btn btn-' ~ (i ? 'outline-secondary' : 'outline-info') ~ ' btn-sm']) }}<br />
-                                            <span>{{ _t('<b>%s</b> release <b>x%d</b>', [file['release'], file['arch']]) }}</span><br />
-                                            {{ Tool::fileSize(root ~ '/public/dll/' ~ file['name'] ~ '.zip') }}, {{ date('Y-m-d H:i:s', filectime(root ~ '/public/dll/' ~ file['name'] ~ '.zip')) }}<br />
-                                            <span class="text-muted " title="md5 sum">{{ md5_file(root ~ '/public/dll/' ~ file['name'] ~ '.zip') }}</span>
-                                        {% endforeach %}
-                                    </ul>
-                                </li>
-                                {% var i++ %}
-                            {% endforeach %}
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        {% endforeach %}
-    </div>
 </div>
