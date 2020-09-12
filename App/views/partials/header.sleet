@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">{{ link_to(['doc', '<span class="d-md-none d-lg-block">' ~ _t('documentation') ~ '</span><span class="d-none d-md-block d-lg-none">' ~ _t('Doc') ~ '</span>', 'class': 'nav-link']) }}</li>
-                <li class="nav-item">{{ link_to(['https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5MWRA6KJKZ8A6&os0=small', _t('subscribe'), 'class': 'nav-link',  'local': false, 'target' => '_blank']) }}</li>
+                <li class="nav-item">{{ link_to(['https://opencollective.com/ice', _t('subscribe'), 'class': 'nav-link',  'local': false, 'target' => '_blank']) }}</li>
                 <li class="nav-item dropdown">
                     {{ link_to([ '#', 'class': 'nav-link dropdown-toggle', 'data-toggle': 'dropdown', _t('language')]) }}
                     <ul class="dropdown-menu">
