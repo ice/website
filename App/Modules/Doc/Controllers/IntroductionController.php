@@ -32,6 +32,12 @@ class IntroductionController extends IndexController
     public function readmeAction()
     {
         $this->tag->setTitle(_t('readme'));
+
+        $this->view->setVars([
+            'title' => _t('readme'),
+            'content' => $this->getMd('https://raw.githubusercontent.com/ice/framework/dev/README.md')
+        ]);
+        $this->view->setContent($this->view->partial('md'));
     }
 
     /**
