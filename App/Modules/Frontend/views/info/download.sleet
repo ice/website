@@ -16,8 +16,11 @@
     <hr />
 
     <ul>
-        <li><span id="opensuse">{{ _t('openSUSE') }}:</span> {{ link_to(['http://software.opensuse.org/package/php7-ice', 'php7-ice', 'local': false, 'target': '_blank']) }}</li>
-        <li><span id="windows">{{ _t('Windows') }}:</span> {{ link_to(['https://windows.php.net/downloads/pecl/releases/ice/', 'dll', 'local': false, 'target': '_blank']) }}</li>
+        <li><span id="opensuse">{{ _t('openSUSE') }}:</span> {{ link_to(['https://software.opensuse.org/package/php8-ice', 'php8-ice', 'local': false, 'target': '_blank']) }}
+            <ul>
+                <li><code>zypper install php8-ice</code></li>
+            </ul>
+        </li>
     </ul>
     <ul>
         <li><abbr id="pecl" title="PHP Extension Community Library">{{ _t('pecl') }}:</abbr> {{ link_to(['https://pecl.php.net/package/ice', 'ice', 'local': false, 'target': '_blank']) }}
