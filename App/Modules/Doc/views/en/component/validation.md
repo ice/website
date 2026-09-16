@@ -1,6 +1,6 @@
 ## Validation
 ***
-[Ice\Validation](http://doc.iceframework.org/latest/class/Ice/Validation.html) is an independent validation component that allows to validate any array data eg. *$_POST*, *$_GET*, *$_FILES*, etc.
+[Ice\Validation](http://doc.iceframework.org/latest/class/Ice/Validation.html) is an independent validation component that lets you validate any array data, e.g. *$_POST*, *$_GET*, *$_FILES*, etc.
 
 Let's try to validate `$data` with some email rules:
 
@@ -127,7 +127,7 @@ array(2) {
   }
 }
 ```
-Also you can overwrite default messages and labels by `setDefaultMessages()` and `setLabels()` methods.
+You can also overwrite the default messages and labels using the `setDefaultMessages()` and `setLabels()` methods.
 
 #### Translation
 The messages and labels are translated by default, so if you have in the `pl.php` lang file (Polish language):
@@ -135,7 +135,7 @@ The messages and labels are translated by default, so if you have in the `pl.php
 return [
     'Field :field is required' => 'Pole <em>:field</em> jest wymagane',
     'Field :field and :other must match' => 'Pole <em>:field</em> i <em>:other</em> muszą się zgadzać',
-    'emailAddress' => 'Adres email'
+    'emailAddress' => 'Adres email',
     'repeatEmailAddress' => 'Powtórz email'
 ];
 ```
@@ -156,10 +156,10 @@ array(2) {
 }
 ```
 
-> The [Ice\I18n](http://doc.iceframework.org/latest/class/Ice/I18n.html) componet must be set to the `i18n` service in the *di*.
+> The [Ice\I18n](http://doc.iceframework.org/latest/class/Ice/I18n.html) component must be set to the `i18n` service in the *di*.
 
 #### Filters
-You can add some filter to be sure to retreive valid value after validation:
+You can add a filter to make sure you retrieve a valid value after validation:
 ```php
 $data = [
     'username' => 'ice-123_framework'
@@ -178,13 +178,13 @@ var_dump($validation->getValue('username'));
 ```code
 string(12) "iceframework"
 ```
-In this way you can simply escape string, remove repeats, or cast values to `int`, `float`, etc.
+In this way you can simply escape a string, remove repeated characters, or cast values to `int`, `float`, etc.
 
-> The [Ice\Filter](http://doc.iceframework.org/latest/class/Ice/Filter.html) componet must be set to the `filter` service in the *di*.
+> The [Ice\Filter](http://doc.iceframework.org/latest/class/Ice/Filter.html) component must be set to the `filter` service in the *di*.
 
 ### Validating Models
 ***
-In the models there is implemented the autovalidation, so you can simply validate some [Ice\Mvc\Model](http://doc.iceframework.org/latest/class/Ice/Mvc/Model.html) fields during creating. Just specify `rules` property:
+Models implement autovalidation, so you can easily validate certain [Ice\Mvc\Model](http://doc.iceframework.org/latest/class/Ice/Mvc/Model.html) fields during creation. Just specify the `rules` property:
 ```php
 namespace App\Models;
 
@@ -210,7 +210,7 @@ if ($user->create($data) !== true) {
 ```
 
 #### Extra validation
-Add extra validation for fields that won't be save but must pass:
+Add extra validation for fields that won't be saved but must pass:
 ```php
 $extra = new Validation($data);
 $extra->rules([
@@ -223,13 +223,13 @@ if ($this->create($data, $extra) !== true) {
 }
 ```
 
-> During updating the validation is not being used by default. Before `update()` you should run:
+> Validation is not used by default during an update. Before calling `update()` you should run:
 ```php
 $user->setValidation($validation);
 ```
 
 #### Valid fields
-You can specify valid fields and only them will be saved:
+You can specify valid fields and only those will be saved:
 ```php
 $user = new Users();
 $user->username = 'ice';
@@ -262,7 +262,7 @@ if ($user->create($_POST) !== true) {
 Then only `email`, `username`, and `password` will be taken from the *$_POST*.
 
 #### Model hooks
-You can add hooks to run some code before or after model's validation:
+You can add hooks to run some code before or after the model's validation:
 ```php
 class Users extends Model
 {

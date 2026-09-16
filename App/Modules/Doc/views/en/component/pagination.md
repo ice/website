@@ -1,6 +1,6 @@
 ## Pagination
 ***
-[Ice\Pagination](http://doc.iceframework.org/latest/class/Ice/Pagination.html) provide the multi-page pagination component.
+[Ice\Pagination](http://doc.iceframework.org/latest/class/Ice/Pagination.html) provides the multi-page pagination component.
 
 You can simply paginate on `array` or [Ice\Arr](http://doc.iceframework.org/latest/class/Ice/Arr.html) object (which is used during finding models). In the controller:
 ```php
@@ -79,10 +79,10 @@ In the views you can display different templates:
 {# First Previous 1 2 3 ... 23 24 25 26 [27] 28 29 30 31 ... 48 49 50 Next Last#}
 ```
 
-> If you have the `i18n` service in the *di*, it'll be used to translate _Previous_, _Next_, etc. words.
+> If you have the `i18n` service in the *di*, it'll be used to translate words like _Previous_, _Next_, etc.
 
 ##### Pagination properties
-You can access to `first`, `previous`, `current`, `next`, `last`, `pages`, `total`, `items` properties and display own pagination info:
+You can access the `first`, `previous`, `current`, `next`, `last`, `pages`, `total`, `items` properties and display your own pagination info:
 ```twig
 {{ _t('Page: %d/%d (%d items)', [pagination.current, pagination.pages, pagination.total]) }}
 {# Page: 2/6 (54 items) #}

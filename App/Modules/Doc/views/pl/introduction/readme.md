@@ -9,8 +9,8 @@ Prosty i szybki framework PHP dostarczany jako rozszerzenie C.
 
 ##### Jak pomóc?
 1. Sforkuj repozytorium [ice/framework](https://github.com/ice/framework).
-2. Utwórz nową branżę dla każdej funkcji lub ulepszenia.
-3. Wyślij żądanie z dowolnej gałęzi zawsze do **dev** branży*.
+2. Utwórz nową gałąź dla każdej funkcji lub ulepszenia.
+3. Wyślij pull request z każdej gałęzi funkcji do gałęzi **dev***.
 
 *proszę nie wysyłać plików z katalogu `build/` (są generowane automatycznie), tylko te z `ice/`.
 
@@ -27,7 +27,7 @@ Ice jest rozszerzeniem w C, więc musisz pobrać plik binarny dla Twojej platfor
 
 ### Kompilacja*
 * Kompilacja na Linux/Unix/Mac. Są dwa sposoby kompilacji Ice framework*:
- * kompilacja z katalogu `build/` i C-plików - zalecany dla początkujących oraz dla maszyn produkcyjnych; C-pliki są generowane przez zespół Ice po złaczeniu i przejściu testów
+ * kompilacja z katalogu `build/` i C-plików - zalecany dla początkujących oraz dla maszyn produkcyjnych; C-pliki są generowane przez zespół Ice po złączeniu i przejściu testów
  * zbuduj przez [zephir](https://github.com/ice/zephir) (wygeneruj, skompiluj i zainstaluj rozszerzenie) - zalecany dla deweloperów oraz testowania następnego wydania; w ten sposób można wygenerować C-pliki z Zep-plików, dzięki czemu można uzyskać najnowsze funkcje/poprawki, ale to może być niestabilne; po generowaniu przez zephira pliki będą w katalogu `ext/`
 * [budowanie na Windows](http://www.iceframework.org//doc/introduction/windows)
 

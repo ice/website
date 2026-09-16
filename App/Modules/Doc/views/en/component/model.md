@@ -2,7 +2,7 @@
 ***
 [Ice\Mvc\Model](http://doc.iceframework.org/latest/class/Ice/Mvc/Model.html) allows you to manipulate database records / documents as objects.
 #### Model file
-It's very easy to start using the models, just extends the `Ice\Mvc\Model` using the same class name as your table / collection.
+It's very easy to start using models — just extend `Ice\Mvc\Model` using the same class name as your table / collection.
 ```php
 namespace App\Models;
 
@@ -13,7 +13,7 @@ class Posts extends Model
 
 }
 ```
-The model `App\Models\Posts` will map to the table / collection `posts`. If you want to manually specify another name for the mapped source, you can set `from` attribute.
+The model `App\Models\Posts` will map to the table / collection `posts`. If you want to manually specify another name for the mapped source, you can set the `from` attribute.
 ```php
 class Posts extends Model
 {
@@ -137,7 +137,7 @@ $post->update([
 ]);
 ```
 
-If you have the `fields` attribute specified, only that fields will be taken from the data. The main difference to the `create` method is that the validation is not enabled by default. You have to use `setValidation` before the update method.
+If you have the `fields` attribute specified, only those fields will be taken from the data. The main difference from the `create` method is that validation is not enabled by default. You have to use `setValidation` before the update method.
 ```php
 $validation = new Validation();
 $validation->rules($this->getRules([
@@ -148,7 +148,7 @@ $this->setValidation($validation);
 $this->update($_POST);
 ```
 
-The `save` method allows you to create / update record according to whether they already exist in the table associated with a model.
+The `save` method allows you to create or update a record depending on whether it already exists in the table associated with the model.
 ```php
 $post = new Post();
 $post->title = 'A new title';
@@ -160,7 +160,7 @@ $post->save();
 
 ***
 #### Relations
-Specify the relations in the `initialize` method to easily get related model.
+Specify the relations in the `initialize` method to easily get the related model.
 ```php
 
 class Posts extends Model
@@ -168,13 +168,13 @@ class Posts extends Model
     public function initialize()
     {
         $this->belongsTo('user_id', __NAMESPACE__ . '\Users', $this->getIdKey(), ['alias' => 'User']);
-        $this->hasMany($this->getIdKey(), __NAMESPACE__ . '\Coments', 'post_id', ['alias' => 'Coments']);
+        $this->hasMany($this->getIdKey(), __NAMESPACE__ . '\Comments', 'post_id', ['alias' => 'Comments']);
     }
 }
 ```
 
 ```php
-$post = Posts::findoOne(1);
+$post = Posts::findOne(1);
 $user = $post->getUser();
 
 foreach ($post->getComments() as $comment) {
@@ -184,7 +184,7 @@ foreach ($post->getComments() as $comment) {
 
 ***
 #### Services
-Service is intermediary between Model and Controller. You can inject model into service constructor.
+A Service is an intermediary between a Model and a Controller. You can inject a model into the service constructor.
 ```php
 namespace App\Services;
 
@@ -220,7 +220,7 @@ use App\Models\Posts;
 use App\Services\PostService;
 use Ice\Mvc\Controller;
 
-class PostController extends Controler
+class PostController extends Controller
 {
     protected $service;
 

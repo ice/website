@@ -135,7 +135,7 @@ Komunikaty i etykiety są domyślnie tłumaczone, więc jeśli masz plik języko
 return [
     'Field :field is required' => 'Pole <em>:field</em> jest wymagane',
     'Field :field and :other must match' => 'Pole <em>:field</em> i <em>:other</em> muszą się zgadzać',
-    'emailAddress' => 'Adres email'
+    'emailAddress' => 'Adres email',
     'repeatEmailAddress' => 'Powtórz email'
 ];
 ```
@@ -159,7 +159,7 @@ array(2) {
 > Komponent [Ice\I18n](http://doc.iceframework.org/latest/class/Ice/I18n.html) musi zostać dodany do usługi `i18n` w *di*.
 
 #### Filtry
-Możesz dodać jakiś filter, aby być pewien, że otrzymasz prawidłową wartość po walidacji:
+Możesz dodać jakiś filtr, aby być pewien, że otrzymasz prawidłową wartość po walidacji:
 ```php
 $data = [
     'username' => 'ice-123_framework'
@@ -178,7 +178,7 @@ var_dump($validation->getValue('username'));
 ```code
 string(12) "iceframework"
 ```
-Przez ten sposób, możesz łatwo zabezpieczyć stringi, usunąć powtórzenie, albo przekonwertować wartość do `int`, `float`, itp.
+W ten sposób możesz łatwo zabezpieczyć stringi, usunąć powtarzające się znaki, albo przekonwertować wartość do `int`, `float`, itp.
 
 > Komponent [Ice\Filter](http://doc.iceframework.org/latest/class/Ice/Filter.html) musi zostać dodany do usługi `filter` w *di*.
 

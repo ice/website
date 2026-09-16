@@ -1,7 +1,7 @@
 ## Konfiguracja serwera
 ***
 ### Nginx
-[Nginx](http://nginx.org) jest darmowym, open-sourcowym, wysokiej wydajności serwerem HTTP. W przeciwieństwie do tradycyjnych serwerów, Nginx nie polega na wątkach przy obsługdze żądań. Zamiast tego używa znacznie bardziej skalowną architekturę sterowania zdarzeniami (asynchronicznie). Architektura ta wykorzystuje małe, ale ważniejsze, przewidywanie ilości pamięci pod obciążeniem.
+[Nginx](http://nginx.org) jest darmowym, open-sourcowym, wysokiej wydajności serwerem HTTP. W przeciwieństwie do tradycyjnych serwerów, Nginx nie polega na wątkach przy obsłudze żądań. Zamiast tego używa znacznie bardziej skalowalnej architektury sterowanej zdarzeniami (asynchronicznej). Architektura ta wykorzystuje niewielkie, ale, co ważniejsze, przewidywalne ilości pamięci pod obciążeniem.
 
 PHP-FPM (FastCGI Process Manager) jest zwykle stosowany w celu umożliwienia serwerowi Nginx przetwarzania plików PHP. Obecnie, PHP-FPM jest w zestawie z PHP w każdej dystrybucji z rodziny Unix. Nginx + PHP-FPM + Ice zapewnia potężny zestaw narzędzi, które zapewniają maksymalną wydajność w aplikacjach PHP.
 
@@ -46,14 +46,14 @@ server {
 }
 ```
 
-Jeśli komputer jest publiczy, użyj domeny np. _example.com_ zamiast _hello_ w opcji `server_name`. Jeśli pracujesz na komputerze lokalnym, dodaj nazwę hosta _hello_ do pliku `/etc/hosts`, aby móc uruchomić host w Twojej przeglądarce:
+Jeśli host jest publiczny, użyj domeny, np. _example.com_, zamiast _hello_ w opcji `server_name`. Jeśli pracujesz na komputerze lokalnym, dodaj nazwę hosta _hello_ do pliku `/etc/hosts`, aby móc uruchomić host w Twojej przeglądarce:
 ```conf
 127.0.0.2       hello
 ```
 
 ***
 ### Apache
-[Apache](http://httpd.apache.org) jest popularnm i dobrze znanym serwerem WWW dostępnym na wielu platformach.
+[Apache](http://httpd.apache.org) jest popularnym i dobrze znanym serwerem WWW dostępnym na wielu platformach.
 
 #### Konfiguracja wirtualnego hosta
 Utwórz plik konfiguracyjny `/etc/apache2/vhosts.d/hello.conf`:
@@ -70,7 +70,7 @@ Utwórz plik konfiguracyjny `/etc/apache2/vhosts.d/hello.conf`:
 </VirtualHost>
 ```
 
-Jeśli komputer jest publiczy, użyj domeny np. _example.com_ zamiast _hello_ w opcji `ServerName`. Jeśli pracujesz na komputerze lokalnym, dodaj nazwę hosta _hello_ do pliku `/etc/hosts`, aby móc uruchomić host w Twojej przeglądarce:
+Jeśli host jest publiczny, użyj domeny, np. _example.com_, zamiast _hello_ w opcji `ServerName`. Jeśli pracujesz na komputerze lokalnym, dodaj nazwę hosta _hello_ do pliku `/etc/hosts`, aby móc uruchomić host w Twojej przeglądarce:
 ```conf
 127.0.0.2       hello
 ```

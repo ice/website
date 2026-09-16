@@ -1,9 +1,9 @@
 ## Build on Windows
 ***
-Follow these instructions to build Ice in your Windows system. This guide is based on [Build your own PHP on Windows](https://wiki.php.net/internals/windows/stepbystepbuild_sdk_2) and shows how to build using **Visual C++ 15.0** (Visual Studio 2017) for **PHP 7.2+**.
+Follow these instructions to build Ice on your Windows system. This guide is based on [Build your own PHP on Windows](https://wiki.php.net/internals/windows/stepbystepbuild_sdk_2) and shows how to build using **Visual C++ 15.0** (Visual Studio 2017) for **PHP 7.2+**.
 
 #### Requirements
-1. Get the _Visual C++ 15.0_ compiler, it's in [Visual Studio 2017 Community](https://visualstudio.microsoft.com/vs/community/).
+1. Get the _Visual C++ 15.0_ compiler; it's part of [Visual Studio 2017 Community](https://visualstudio.microsoft.com/vs/community/).
 2. Get the PHP source from [Stable releases](http://windows.php.net/download/) (click the _Download source code_).
 3. Get the latest binary tools from [php-sdk-binary-tools](https://github.com/Microsoft/php-sdk-binary-tools).
 4. Get the [Ice framework](https://github.com/ice/framework/releases).
@@ -48,7 +48,7 @@ configure --disable-all --disable-zts --enable-cli --enable-ice=shared
 nmake
 ```
 
-* The _php\_ice.dll_ file is now under `C:\php-sdk\phpdev\vc15\x64\php-7.2.11-src\x64\Release`.  If you compiled without _--disable-zts_ the _php\_ice.dll_ file will be under `C:\php-sdk\phpdev\vc15\x64\php-7.2.11-src\x64\Release_TS`.
+* The _php\_ice.dll_ file is now under `C:\php-sdk\phpdev\vc15\x64\php-7.2.11-src\x64\Release`.  If you compiled without _--disable-zts_, the _php\_ice.dll_ file will be under `C:\php-sdk\phpdev\vc15\x64\php-7.2.11-src\x64\Release_TS`.
 
 #### Recompile (with Thread Safe option)
 Recompile after you have done some changes:

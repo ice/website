@@ -5,12 +5,12 @@ Nie ma żadnych specjalnych ustawień/optymalizacji w celu zwiększenia wydajno�
 Środowisko testowe jest następujące:
 
 #### Sprzęt
-* Procesor: i7-5820K do 3.6GHz 6 rdzeni 16 wątków
+* Procesor: i7-5820K do 3.6GHz 6 rdzeni 12 wątków
 * Pamięć: 16GB 2133MHz DDR4
 * Dysk: NVMe SSD 256GB odczyt 2200MB/s zapis 900MB/s
 
 #### Oprogramowanie
-* System operacyjny: openSUSE Tubmleweed 20160329 64-bit
+* System operacyjny: openSUSE Tumbleweed 20160329 64-bit
 * Kernel: 4.5.0
 * Serwer www: Nginx 1.8.1
 * PHP-FPM: 5.6.19
@@ -35,7 +35,7 @@ Nie ma żadnych specjalnych ustawień/optymalizacji w celu zwiększenia wydajno�
 
 ![Files](/img/doc/benchmark4.jpg?v=31032016)
 
-### Table (31 Marz 2016)
+### Tabela (31 marca 2016)
 |framework          |requests per second|relative|peak memory|relative|files|relative| 
 |-------------------|------------------:|-------:|----------:|-------:|----:|-------:| 
 |phalcon-2.0        |              7,120|   53.19|       0.29|    1.05|    5|    1.25| 

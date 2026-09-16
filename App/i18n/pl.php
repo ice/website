@@ -15,8 +15,8 @@ return [
     "home.speed.desc" => "Jedną z głównych wad PHP jest to, że na każde żądanie wszystkie pliki są odczytywane z dysku twardego, przetłumaczone na kod bajtowy, a następnie wykonywane.",
     "home.speed.desc2 :benchmark:" => "Z Ice cały framework już znajduje się w pamięci RAM, więc cały zestaw plików frameworka nie musi się przetwarzać. Oznacza to, że podczas skalowania potrzebujesz kilkukrotnie mniej serwerów, aby obsługiwać ten sam ruch. Sprawdź :benchmark:.",
     "home.ext.title" => "Dostarczany jako rozszerzenie C.",
-    "home.ext.desc" => "Około 90% góry lodowej znajduje się pod powierzchnią wody... Fakt, że nie widzisz kodu, wcale nie oznacza, że ​​nie jest on potężny!",
-    "home.ext.desc2 :zaphir: :api:" => "Nie musisz uczyć się lub korzystać z języka C, ponieważ funkcjonalnośi są wyeksponowane jako gotowe do użycia klasy PHP. Ice jest napisany w :zephir:, dzięki czemu można łatwo sprawdzić logikę w :api: i wprowadzić pewne zmiany.",
+    "home.ext.desc" => "Około 90% góry lodowej znajduje się pod powierzchnią wody... Fakt, że nie widzisz kodu, wcale nie oznacza, że nie jest on potężny!",
+    "home.ext.desc2 :zaphir: :api:" => "Nie musisz uczyć się lub korzystać z języka C, ponieważ funkcjonalności są wyeksponowane jako gotowe do użycia klasy PHP. Ice jest napisany w :zephir:, dzięki czemu można łatwo sprawdzić logikę w :api: i wprowadzić pewne zmiany.",
     "home.sleet.title" => "Silnik szablonów Sleet.",
     "home.sleet.desc :atom:" => "Sleet jest lekkim i szybkim kompilowanym silnikiem szablonów PHP napisanym w C. Kolorowanie składni Sleet jest dostępne w :atom:.",
     "home.model.title" => "Praca z modelami.",
@@ -29,6 +29,8 @@ return [
     // Doc
     "benchmark" => "Porównanie",
     "introduction" => "Wprowadzenie",
+    "model" => "Model",
+    "hello" => "Hello",
     "readme" => "Przeczytaj mnie",
     "serverConfiguration" => "Konfiguracja serwera",
     "tutorials" => "Poradniki",
@@ -64,4 +66,6 @@ return [
     "success" => "Sukces",
     "polish" => "Polski",
     "warning" => "Ostrzeżenie",
+    "Contact" => "Kontakt",
+    "See the release notes." => "Zobacz informacje o wydaniu.",
 ];

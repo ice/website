@@ -1,7 +1,7 @@
 ## Server configuration
 ***
 ### Nginx
-[Nginx](http://nginx.org) is a free, open-source, high-performance HTTP. Unlike traditional servers, Nginx doesn't rely on threads to handle requests. Instead it uses a much more scalable event-driven (asynchronous) architecture. This architecture uses small, but more importantly, predictable amounts of memory under load.
+[Nginx](http://nginx.org) is a free, open-source, high-performance HTTP server. Unlike traditional servers, Nginx doesn't rely on threads to handle requests. Instead it uses a much more scalable event-driven (asynchronous) architecture. This architecture uses small, but more importantly, predictable amounts of memory under load.
 
 The PHP-FPM (FastCGI Process Manager) is usually used to allow Nginx to process PHP files. Nowadays, PHP-FPM is bundled with any Unix PHP distribution. Nginx + PHP-FPM + Ice provides a powerful set of tools that offer maximum performance for your PHP applications.
 
@@ -46,7 +46,7 @@ server {
 }
 ```
 
-If you host is public use the domain eg. _example.com_ instead of `hello` at the `server_name` option. If you are working on local machine add the _hello_ hostname to the `/etc/hosts` file to be able run host in your browser:
+If your host is public, use a domain, e.g. _example.com_, instead of `hello` for the `server_name` option. If you are working on a local machine, add the _hello_ hostname to the `/etc/hosts` file so you can access the host in your browser:
 ```conf
 127.0.0.2       hello
 ```
@@ -70,7 +70,7 @@ Create `/etc/apache2/vhosts.d/hello.conf` config file:
 </VirtualHost>
 ```
 
-If you host is public use the domain eg. _example.com_ instead of `hello` at the `ServerName` option. If you are working on local machine add the _hello_ hostname to the `/etc/hosts` file to be able run host in your browser:
+If your host is public, use a domain, e.g. _example.com_, instead of `hello` for the `ServerName` option. If you are working on a local machine, add the _hello_ hostname to the `/etc/hosts` file so you can access the host in your browser:
 ```conf
 127.0.0.2       hello
 ```
@@ -87,4 +87,4 @@ Options FollowSymLinks
 </IfModule>
 ```
 
-If you do not want to use _.htaccess_ files you can move these configurations to the apache's main configuration file.
+If you do not want to use _.htaccess_ files, you can move these configurations to Apache's main configuration file.

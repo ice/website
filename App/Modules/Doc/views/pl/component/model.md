@@ -22,7 +22,7 @@ class Posts extends Model
 ```
 
 #### Znajdź jeden obiekt
-Używając metody`findOne` możesz pobrać jeden rekord / dokument i zmapować go do obiektu, aby uzyskać łatwy dostęp do danych.
+Używając metody `findOne` możesz pobrać jeden rekord / dokument i zmapować go do obiektu, aby uzyskać łatwy dostęp do danych.
 ```php
 // Find by id
 $post = Posts::findOne(1);
@@ -39,7 +39,7 @@ echo $post->get('title');
 ```
 
 #### Znajdź wiele obiektów
-Poniższy przykład pokazuje jak pobrać wiele elementów z modelu. Użyj metody `find` żeby stworzyć zbiór obiketów.
+Poniższy przykład pokazuje jak pobrać wiele elementów z modelu. Użyj metody `find` żeby stworzyć zbiór obiektów.
 ```php
 $posts = Posts::find(['status' => 1], ['limit' => 10]);
 
@@ -49,7 +49,7 @@ foreach ($posts as $post) {
 ```
 
 #### Stwórz (dodaj) nowy obiekt
-Żeby dodać nowy rekord / dokumnet użyj metody `create`.
+Żeby dodać nowy rekord / dokument użyj metody `create`.
 ```php
 $post = new Posts();
 $post->title = 'First post';
@@ -148,7 +148,7 @@ $this->setValidation($validation);
 $this->update($_POST);
 ```
 
-Metoda `save` pozwala tworzyć / aktualizować rekord w zależności czy już istnieje w powiązanej w modelem tabeli.
+Metoda `save` pozwala tworzyć lub aktualizować rekord, w zależności od tego, czy już istnieje w tabeli powiązanej z modelem.
 ```php
 $post = new Post();
 $post->title = 'A new title';
@@ -168,13 +168,13 @@ class Posts extends Model
     public function initialize()
     {
         $this->belongsTo('user_id', __NAMESPACE__ . '\Users', $this->getIdKey(), ['alias' => 'User']);
-        $this->hasMany($this->getIdKey(), __NAMESPACE__ . '\Coments', 'post_id', ['alias' => 'Coments']);
+        $this->hasMany($this->getIdKey(), __NAMESPACE__ . '\Comments', 'post_id', ['alias' => 'Comments']);
     }
 }
 ```
 
 ```php
-$post = Posts::findoOne(1);
+$post = Posts::findOne(1);
 $user = $post->getUser();
 
 foreach ($post->getComments() as $comment) {
@@ -185,6 +185,7 @@ foreach ($post->getComments() as $comment) {
 ***
 #### Serwisy
 Serwis jest pośrednikiem pomiędzy modelem a kontrolerem. Możesz wstrzyknąć model do konstruktora serwisu.
+
 ```php
 namespace App\Services;
 
@@ -220,7 +221,7 @@ use App\Models\Posts;
 use App\Services\PostService;
 use Ice\Mvc\Controller;
 
-class PostController extends Controler
+class PostController extends Controller
 {
     protected $service;
 

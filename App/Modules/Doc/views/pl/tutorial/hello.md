@@ -82,7 +82,7 @@ try {
 
 ***
 ### Bootstrap.php
-Drugim plikiem jest `App/Bootstrap.php`. Ten plik jest bardzo ważny; ponieważ służy jako baza Twojej aplikacji, dając Ci kontrolę nad wszystkimi jego aspektami. W tym pliku możesz zaimplementować inicjalizację komponentów, jak również zachowań aplikacji.
+Drugim plikiem jest `App/Bootstrap.php`. Ten plik jest bardzo ważny, ponieważ służy jako baza Twojej aplikacji, dając Ci kontrolę nad wszystkimi jego aspektami. W tym pliku możesz zaimplementować inicjalizację komponentów, jak również zachowań aplikacji.
 ```php
 <?php
 
@@ -140,7 +140,7 @@ return new \Ice\Mvc\App($di);
 ```
 
 #### Autoloader
-Pierwszą częścią, którą znajdziemy w naszym pliku bootstrap jest rejestracja autoloadera. Autoloader ten będzie użyty do załadowania klas w aplikacji jako kontrolery i modele.
+Pierwszą częścią, którą znajdziemy w naszym pliku bootstrap, jest rejestracja autoloadera. Autoloader ten będzie użyty do załadowania klas w aplikacji jako kontrolery i modele.
 ```php
 (new \Ice\Loader())
     ->addNamespace(__NAMESPACE__, __DIR__)
@@ -181,7 +181,7 @@ $di->set('dispatcher', function () {
     return $dispatcher;
 });
 ```
-_Router_ bierze URI i rozkładania go na parametry w celu określenia który moduł, kontroler i akcja tego kontrolera powinny odebrać żądanie:
+_Router_ bierze URI i rozkłada go na parametry w celu określenia, który moduł, kontroler i akcja tego kontrolera powinny odebrać żądanie:
 ```php
 $di->set('router', function () {
     $router = new \Ice\Mvc\Router();
@@ -211,7 +211,7 @@ $di->set('view', function () {
 ```
 
 #### Stwórz aplikację MVC
-W ostatniej części tego pliku, znajdziemy `Ice\Mvc\App`. Jego celem jest inicjacja środowiska żądania, rozpoznanie przychodzące trasy, a następnie odpalenie odpowiednich akcji; zwraca odpowiedź, gdy proces jest zakończony:
+W ostatniej części tego pliku, znajdziemy `Ice\Mvc\App`. Jego celem jest inicjacja środowiska żądania, rozpoznanie przychodzącej trasy, a następnie odpalenie odpowiednich akcji; zwraca odpowiedź, gdy proces jest zakończony:
 ```php
 return new \Ice\Mvc\App($di);
 ```
@@ -243,7 +243,7 @@ return new \Ice\Mvc\App($di);
 
 ***
 ### Tworzenie kontrolera
-Domyślnie Ice szuka kontrolera o nazwie _Index_. To jest punkt wyjścia, gdy kontroler lub akcja nie zostały przekazane w żądaniu. Kontroler index `App/Controler/IndexController.php` wygląda tak:
+Domyślnie Ice szuka kontrolera o nazwie _Index_. To jest punkt wyjścia, gdy kontroler lub akcja nie zostały przekazane w żądaniu. Kontroler index `App/Controller/IndexController.php` wygląda tak:
 ```php
 <?php
 
@@ -422,7 +422,7 @@ Widok `App/View/user/index.phtml` wyświetla wszystkich użytkowników (jeśli s
 <?php echo $this->tag->linkTo(['user/signup', 'Sign up']) ?>
 ```
 
-Po kliknięciu w _Sign up_ i powinieneś zobaczyć formularz:
+Po kliknięciu w _Sign up_ powinieneś zobaczyć formularz:
 
 ![Sign up](/img/doc/hello3.jpg){.img-responsive}
 
@@ -436,7 +436,7 @@ Widok `App/View/user/signup.phtml` z definicją formularza:
 <?php echo $this->tag->endTag('form') ?>
 ```
 
-Więc spróbuj wysłać formularz, nie wypełniaj pól, po prostu kliknij _Sign up_ przycisk:
+Więc spróbuj wysłać formularz, nie wypełniaj pól, po prostu kliknij przycisk _Sign up_:
 
 ![Validation error](/img/doc/hello4.jpg){.img-responsive}
 
@@ -459,7 +459,7 @@ if (!$valid) {
     }
 ```
 
-Wróć, wypełnij _Name_, _Email_ i kiliknij _Sign up_.
+Wróć, wypełnij _Name_, _Email_ i kliknij _Sign up_.
 ```php
 } else {
     $user = new Users();

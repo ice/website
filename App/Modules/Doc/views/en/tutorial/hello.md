@@ -38,11 +38,11 @@ Note that you don't need any directory related to Ice. The framework is availabl
 
 ***
 ### Server configuration
-Let's agree that virtual host is called _hello_. Set the `DocumentRoot` for the vhost to the `hello/public/` folder. This step ensures that the internal project folders remain hidden from public viewing and thus eliminates security threats of this kind.
+Let's agree that the virtual host is called _hello_. Set the `DocumentRoot` for the vhost to the `hello/public/` folder. This step ensures that the internal project folders remain hidden from public viewing and thus eliminates security threats of this kind.
 
 We'll use friendly URLs for this tutorial. Friendly URLs are better for SEO as well as being easy for users to remember. For more information see [server configuration](/doc/introduction/server).
 
-*If you are working on the Apache, add _.htaccess_ file into `public/` directory:
+*If you are working with Apache, add an _.htaccess_ file to the `public/` directory:
 ```
 # hello/public/.htaccess
 Options FollowSymLinks
@@ -53,11 +53,11 @@ Options FollowSymLinks
     RewriteRule ^(.*)$ index.php?_url=/$1 [QSA,L]
 </IfModule>
 ```
-This rules will check if the requested file exists and, if it does, it doesn't have to be rewritten by the web server module.
+These rules will check if the requested file exists and, if it does, it doesn't have to be rewritten by the web server module.
 
 ***
 ### index.php
-The first file you need to create is the `public/index.php`. This file define a `__ROOT__` constant which contains the full path to the `DocumentRoot`, loads the bootstrap file, handle a MVC request and display the HTTP response body:
+The first file you need to create is the `public/index.php`. This file defines a `__ROOT__` constant which contains the full path to the `DocumentRoot`, loads the bootstrap file, handles an MVC request, and displays the HTTP response body:
 ```php
 <?php
 
@@ -68,13 +68,13 @@ defined('__ROOT__') or
     define('__ROOT__', dirname(__DIR__));
 
 try {
-    // Load the bootstrap which return the MVC application
+    // Load the bootstrap which returns the MVC application
     $app = require_once __ROOT__ . '/App/Bootstrap.php';
 
-    // Handle a MVC request and display the HTTP response body
+    // Handle an MVC request and display the HTTP response body
     echo $app->handle();
 } catch (Exception $e) {
-    // Dispaly the excepton's message
+    // Display the exception's message
     echo $e->getMessage();
 }
 ?>
@@ -82,7 +82,7 @@ try {
 
 ***
 ### Bootstrap.php
-The second file is the `App/Bootstrap.php`. This file is very important; since it serves as the base of your application, giving you control of all aspects of it. In this file you can implement initialization of components as well as application behavior.
+The second file is the `App/Bootstrap.php`. This file is very important, since it serves as the base of your application, giving you control over all aspects of it. In this file you can implement initialization of components as well as application behavior.
 ```php
 <?php
 
@@ -172,7 +172,7 @@ _Tag_ helps to generate links, forms, etc.:
 $di->tag = new \Ice\Tag();
 ```
 
-_Dispatcher_ loads specified module, create instance of handler with action and params:
+_Dispatcher_ loads the specified module and creates an instance of the handler with its action and params:
 ```php
 $di->set('dispatcher', function () {
     $dispatcher = new \Ice\Mvc\Dispatcher();
@@ -181,7 +181,7 @@ $di->set('dispatcher', function () {
     return $dispatcher;
 });
 ```
-_Router_ takes a URI endpoint and decomposing it into parameters to determine which module, controller, and action of that controller should receive the request:
+_Router_ takes a URI endpoint and decomposes it into parameters to determine which module, controller, and action of that controller should receive the request:
 ```php
 $di->set('router', function () {
     $router = new \Ice\Mvc\Router();
@@ -200,7 +200,7 @@ $di->set('router', function () {
 });
 ```
 
-_View_ is service indicating the directory where the framework will find the views files:
+_View_ is a service indicating the directory where the framework will find the view files:
 ```php
 $di->set('view', function () {
     $view = new \Ice\Mvc\View();
@@ -216,9 +216,9 @@ In the last part of this file, we find `Ice\Mvc\App`. Its purpose is to initiali
 return new \Ice\Mvc\App($di);
 ```
 
-As you can see, the bootstrap file is very short and we do not need to include any additional files. We have set ourselves a flexible MVC application in about 50 lines of code.
+As you can see, the bootstrap file is very short and we do not need to include any additional files. We have built a flexible MVC application in about 50 lines of code.
 
-*Since Ice 1.1.0 services are predefined, so bootstrap file can be simpler (10 lines of code!):
+*Since Ice 1.1.0, services are predefined, so the bootstrap file can be simpler (just 10 lines of code!):
 ```php
 namespace App;
 
@@ -271,16 +271,16 @@ class IndexController extends Controller
 ?>
 ```
 
-The controller classes must have the suffix _Controller_ and controller actions must have the suffix _Action_. 
+The controller classes must have the suffix _Controller_, and controller actions must have the suffix _Action_. 
 
 ***
 ### Sending output to a view
-At first Ice will look for a layout `App/Views/layouts/index.phtml` from layouts directory:
+First, Ice will look for a layout at `App/Views/layouts/index.phtml` in the layouts directory:
 ```php
 <?php echo $this->getContent() ?>
 ```
 
-Then a view with the same name as the last executed action inside a directory named as the last executed controller. In our case `App/Views/index/index.phtml`:
+Then it looks for a view with the same name as the last executed action, inside a directory named after the last executed controller. In our case, that's `App/Views/index/index.phtml`:
 ```
 hello world
 ```
@@ -402,7 +402,7 @@ class UserController extends IndexController
 ?>
 ```
 
-Go to `hello/user` in your browser. This URL runs the _User_ controller and _Index_ action (find all users and send them into the view):
+Go to `hello/user` in your browser. This URL runs the _User_ controller and _Index_ action (it finds all users and sends them to the view):
 ```php
 $this->view->setVar('users', Users::find());
 ```
@@ -411,7 +411,7 @@ So, you should see:
 
 ![No users](/img/doc/hello2.jpg){.img-responsive}
 
-The `App/View/user/index.phtml` view displays all users (if found) and link to sign up action:
+The `App/View/user/index.phtml` view displays all users (if found) and links to the sign-up action:
 ```php
 <?php if (count($users)):?>
     <?php foreach ($users as $user): ?>
@@ -437,11 +437,11 @@ The view `App/View/user/signup.phtml` with the form definition:
 <?php echo $this->tag->endTag('form') ?>
 ```
 
-So try send the form, not fill the fields, just click the _Sign up_ button:
+Now try submitting the form without filling in the fields — just click the _Sign up_ button:
 
 ![Validation error](/img/doc/hello4.jpg){.img-responsive}
 
-You see those messages because the validation in the `postSignupAction` not pass:
+You see those messages because the validation in `postSignupAction` fails:
 ```php
 $post = $this->request->getPost()->all();
 
@@ -460,7 +460,7 @@ if (!$valid) {
     }
 ```
 
-Go back, fill the _Name_, _Email_ and click _Sign up_.
+Go back, fill in the _Name_ and _Email_ fields, and click _Sign up_.
 ```php
 } else {
     $user = new Users();
@@ -471,18 +471,18 @@ Go back, fill the _Name_, _Email_ and click _Sign up_.
     }
 }
 ```
-You should see _Thanks for registering!_ message.
+You should see the _Thanks for registering!_ message.
 
-Make sure whether user has signed up, go to `hello/user` to see all users, your browser will show something like this:
+To confirm the user has signed up, go to `hello/user` to see all users — your browser should show something like this:
 
 ![All users](/img/doc/hello5.jpg){.img-responsive}
 
 ***
 ### Conclusion
-This is a very simple tutorial and as you can see, it's easy to start building an application using Ice!
+This is a very simple tutorial, and as you can see, it's easy to start building an application using Ice!
 
 ***
 ### Sample applications
-Also try the:
+You might also want to try:
 * [website](https://github.com/ice/website) - The source code of this website
 * [base](https://github.com/ice/base) - The base application written in Ice

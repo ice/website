@@ -63,7 +63,7 @@ di->set('router', function () {
 ```
 
 #### Szablony
-W widokach możesz łatwo wyświetlić różne szablony
+W widokach możesz łatwo wyświetlić różne szablony:
 ```twig
 {{ pagination.minimal() }}
 {# Previous 1 [2] 3 4 5 6 Next #}
